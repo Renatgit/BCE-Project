@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+span {
+    font-family: 'Exo 2', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.bce-logo{
+    margin-left: 95px;
+}
+.navbar-link{
+    font-weight: 600;
+    font-size: 24px;
+    color: #6B6B6B;
+}
+.active{
+    color: #1F1F1F !important;
+}
+.bce-login-btn{
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    padding-top: 0;
+    background-color: #1F1F1F;
+    width: 172px;
+    height: 53px;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    border: none;
+    border-radius: 3%;
+    margin-left: 24px;
+}
+.bce-login-btn:hover{
+    background-color: rgb(0, 0, 0);
+    transition: 1s;
+}
+.bce-login-btn:active{
+    background-color: #b1b1b1;
+    transition: 0.1s;
+}
+.dark-mode-center{
+    position: absolute;
+    left: 50%;
+}
+.navbar-full{
+    margin-right: 30px;
+}
