@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
-span {
+span, p, a {
     font-family: 'Exo 2', sans-serif;
 }
 a{
@@ -43,4 +43,20 @@ a{
 }
 .navbar-full{
     margin-right: 30px;
+}
+.starter-content{
+    padding-left: 80px;
+}
+.starter-content-main-text{
+    color: #FFFFFF;
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 125%;
+}
+.starter-content-secondary-text{
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 125%;
+    margin-top: 25px;
 }
