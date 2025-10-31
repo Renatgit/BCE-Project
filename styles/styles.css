@@ -45,7 +45,11 @@ a{
     margin-right: 30px;
 }
 .starter-content{
+    position: relative;
+    height: calc(100vh - 136px);
     padding-left: 80px;
+    z-index: 0;
+    overflow: hidden;   
 }
 .starter-content-main-text{
     color: #FFFFFF;
