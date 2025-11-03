@@ -1,10 +1,14 @@
-function matchBlockHeight() {
-    const blockToAdapt = document.getElementById("starter-content");
-    const imgExample = document.getElementById("main-image");
-    blockToAdapt.style.minHeight = imgExample.clientHeight + "px";
-    console.log(imgExample.clientHeight + "px");
+function matchBlockHeights() {
+    document.querySelectorAll(".matchHeights").forEach(section => {
+        const image = section.querySelector(".bg-img");
+        if(image){
+            section.style.height = image.clientHeight + "px";
+            console.log("Image is present");
+            console.log(image.clientHeight + "px")
+        }
+    });
 }
 
-window.addEventListener("load", matchBlockHeight);
-window.addEventListener("resize", matchBlockHeight);
 
+window.addEventListener("load", matchBlockHeights);
+window.addEventListener("resize", matchBlockHeights);
