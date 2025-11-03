@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
-span, p, a {
+span, p, a, h2, h1, h3, h4, h5, h6, div, button{
     font-family: 'Exo 2', sans-serif;
 }
 a{
     text-decoration: none;
+}
+h2{
+    font-weight: 500;
+    font-size: 64px;
+    color: #1F1F1F;
 }
 .bce-logo{
     margin-left: 95px;
@@ -63,4 +68,35 @@ a{
     font-weight: 800;
     line-height: 125%;
     margin-top: 25px;
+}
+.events-header{
+    width: 100%;
+    height: 155px;
+}
+.mySwiper {
+    width: 70vw;
+    height: 575px;
+    padding: 0px 60px !important;
+    clip-path: polygon(3% 0, 100% 0, 97% 100%, 0% 100%);
+}
+.custom-card {
+    background-color: #6B6B6B;
+    width: 460px !important;
+    border-radius: 3px;
+    margin-right: -45px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-next{
+    position: absolute;
+    right: 0px;
+    left: auto;
+    height: 100%;
+    width: 118px;
+    top: 0;
+    z-index: 10;
+    background-color: #1F1F1F;
+    clip-path: polygon(35% 0, 100% 0, 65% 100%, 0% 100%);
+    border-radius: 3px;
 }
