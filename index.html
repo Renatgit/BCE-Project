@@ -7,7 +7,9 @@
     <link rel="icon" href="img/BCE_Logo_White_NoText(favicon2).png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS Files-->
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/global.css">
 
     <!-- Bootstrap JS Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
@@ -190,15 +192,37 @@
     <div class="newsletter-section-wrapper d-flex flex-column align-items-center justify-content-center">
         <div class="newsletter-content-box d-flex flex-row align-items-center justify-content-between">
             <div class="newsletter-design-line"></div>
-            <div class="newsletter-content-wrapper">
-                <div class="newsletter-form-title">
+            <div class="newsletter-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                <div class="newsletter-form-title d-flex flex-column align-items-center" style="margin-top: -30px; margin-bottom: 20px;">
                     <p class="newsletter-main-title">Newsletter. Events. Deals.</p>
                     <p class="newsletter-slogan-title">Straight from Bristol’s heartbeat to your inbox.</p>
+                </div>
+                <form action="#">
+                    <input type="text" placeholder="bristolvibes@you.com" class="email-input">
+                    <input type="submit" value="Submit @" class="submit-email-btn">
+                </form>
+                <div class="agreement-checkboxes d-flex flex-column align-items-center" style="gap: 5px;">
+                    <div class="upcoming-events-check d-flex flex-row align-items-center" style="gap: 10px;">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p class="checkbox-description">Accept receiving the notification about the upcoming and freshly added events*</p>
+                    </div>
+                    <div class="personalised-offers-check d-flex flex-row align-items-center" style="gap: 10px;">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p class="checkbox-description">Accept receiving the notification about personalised offers and early discounts* </p>
+                    </div>
                 </div>
             </div>
             <div class="newsletter-design-line"></div>
         </div>
     </div>
+    <!-- UNIVERSAL FOOTER -->
+    <div id="footer"></div>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
