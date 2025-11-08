@@ -199,3 +199,62 @@ h2{
     color: #fff;
     margin-top: 63px;
 }
+.about-us-left-line{
+    position: relative;
+    width: 6px;
+    height: 90%;    
+    background-color: #fff;
+    clip-path: polygon(0 1%, 100% 0, 100% 99%, 0% 100%);
+}
+.about-us-design{
+    height: 100%;
+    gap: 101px;
+}
+.about-us-p{
+    font-weight: 400;
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+}
+.about-us-content-wrapper{
+    width: 100%;
+    margin: auto;
+}
+.about-us-underline{
+    width: 350px;
+    height: 2px;
+    background-color: #fff;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+}
+.learn-more-link{
+    color: #fff;
+    margin-top: -5px;
+}
+.newsletter-section-wrapper{
+    width: 100%;
+    min-height: 600px;
+}
+.newsletter-content-box{
+    width: 960px;
+    height: 450px;
+    background-color: #1F1F1F;
+    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+    border-radius: 3px;
+    padding: 0 60px;
+}
+.newsletter-design-line{
+    height: 383px;
+    width: 1px;
+    background-color: #fff;
+    transform: rotate(8.5deg);
+}
+.newsletter-main-title{
+    font-weight: 600;
+    font-size: 40px;
+    color: #fff;
+}
+.newsletter-slogan-title{
+    font-weight: 400;
+    font-size: 24px;
+    color: #fff;
+}
