@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCE -Events</title>
+    <link rel="icon" href="img/BCE_Logo_White_NoText(favicon2).png">
+
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom CSS Files-->
+    <link rel="stylesheet" href="styles/shared/hero.css">
+    <link rel="stylesheet" href="styles/events.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <!--Scripts-->
+    <script src="js/script.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+
+    <!-- HERO SECTION -->
+    <div class="starter-content d-flex align-items-center matchHeights">
+        <img 
+            src="img/bg-imgs/events-hero.png" alt="People On Event Background Picture" class=""
+            style="position: absolute; z-index: -1; left: 0; object-fit: cover;" width="100%" height="100%"
+        >
+        <div class="d-flex flex-column">
+            <p class="starter-content-main-text events-hero-text-spacing">
+                YOUR VIBE.<br>
+                YOUR CITY.<br> 
+                YOUR NEXT EVENT.
+            </p>
+            <p class="starter-content-secondary-text">
+                From festivals to workshops — find, book, and experience it all.
+            </p>
+        </div>
+    </div>
+
+    <!-- SEARCH FILTERS SECTION -->
+    <div class="search-section-wrapper d-flex flex-column align-items-center justify-content-center">
+        <div class="search-section-box d-flex flex-row align-items-center justify-content-between">
+            <div class="search-box-design-line"></div>
+            <div class="search-box-content-wrapper d-flex flex-column align-items-center justify-content-around">
+                <h2 class="search-box-content-title">Search. Filter. Sort.</h2>
+                <form action="#">
+                    <input type="text" placeholder="Find your vibe..." class="default-input">
+                    <input type="submit" value="Search" class="search-events-btn">
+                </form>
+                <div class="search-filter-btns-wrapper d-flex flex-row align-items-center" style="gap: 27px;">
+                    <button class="bce-btn search-filter-btns filter-icon">Filters</button>
+                    <button class="bce-btn search-filter-btns sortby-icon">Sort by</button>
+                </div>
+            </div>
+            <div class="search-box-design-line"></div>
+        </div>
+    </div>
+    <!-- SEARCH RESULTS SECTION -->
+    <section class="result-display-wrapper">
+        <h2 class="number-of-results-title">0 EVENT FOUND</h2>
+
+        <!-- Scroll Container -->
+        <div class="events-list" id="eventsContainers">
+            <!-- Event Card -->
+            <div class="event-card">
+                <img src="" alt="">
+                <div class="event-card-line"></div>
+                <div class="event-card-text-content">
+                    <p class="event-card-title"></p>
+                    <p class="event-card-desciption"></p>
+                </div>
+                <div class="event-card-line"></div>
+                <div class="event-card-action-btns">
+                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

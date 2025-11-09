@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCE - Home Page</title>
     <link rel="icon" href="img/BCE_Logo_White_NoText(favicon2).png">
+
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS Files-->
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/shared/hero.css">
     <link rel="stylesheet" href="styles/global.css">
 
     <!-- Bootstrap JS Bundle-->
@@ -17,12 +20,6 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
-    <!-- Custom JS to log when all resources are loaded -->
-    <script>
-        window.addEventListener("load", function() {
-            console.log("All resources finished loading!");
-        });
-    </script>
     <script src="js/script.js"></script>
     <script src="js/header-footer-loader.js"></script>
 </head>
@@ -95,7 +92,7 @@
                         </div>
                     </div>
 
-                    <!-- Dublicated - so it's enough for the Swiper loop -->
+                    <!-- Duplicated - so it's enough for the Swiper loop -->
                     <!-- Card 1 -->
                     <div class="swiper-slide custom-card d-flex align-items-end">
                         <img src="img/bg-imgs/Upcoming-Events-Card.png" alt="" class="card-bg-img">
@@ -198,7 +195,7 @@
                     <p class="newsletter-slogan-title">Straight from Bristol’s heartbeat to your inbox.</p>
                 </div>
                 <form action="#">
-                    <input type="text" placeholder="bristolvibes@you.com" class="email-input">
+                    <input type="text" placeholder="bristolvibes@you.com" class="default-input">
                     <input type="submit" value="Submit @" class="submit-email-btn">
                 </form>
                 <div class="agreement-checkboxes d-flex flex-column align-items-center" style="gap: 5px;">

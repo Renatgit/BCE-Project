@@ -1,0 +1,22 @@
+/*---"STARTER" part content---*/
+.starter-content{
+    position: relative;
+    height: calc(100vh - 136px);
+    padding-left: 80px;
+    z-index: 0;
+    overflow: hidden;   
+}
+.starter-content-main-text{
+    color: #FFFFFF;
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 125%;
+}
+.starter-content-secondary-text{
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 125%;
+    margin-top: 25px;
+}
+

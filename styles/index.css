@@ -1,42 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-span, p, a, h2, h1, h3, h4, h5, h6, div, button, input{
-    font-family: 'Exo 2', sans-serif;
-}
-p{
-    margin: 0;
-}
-a{
-    text-decoration: none;
-}
-h2{
-    font-weight: 500;
-    font-size: 64px;
-    color: #1F1F1F;
-}
-
-/*---"STARTER" part content---*/
-.starter-content{
-    position: relative;
-    height: calc(100vh - 136px);
-    padding-left: 80px;
-    z-index: 0;
-    overflow: hidden;   
-}
-.starter-content-main-text{
-    color: #FFFFFF;
-    font-size: 96px;
-    font-weight: 800;
-    line-height: 125%;
-}
-.starter-content-secondary-text{
-    color: #FFFFFF;
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 125%;
-    margin-top: 25px;
-}
-
 /*---"EVENTS" part content---*/
 .events-header{
     width: 100%;
@@ -133,7 +94,6 @@ h2{
     font-size: 20px;
     background-color: #1F1F1F;
     padding: 17px 30px;
-    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
     border: none;      
     margin-bottom: 59px;         
 }
@@ -223,16 +183,6 @@ h2{
     font-weight: 400;
     font-size: 24px;
     color: #fff;
-}
-.email-input{
-    width: 479px;
-    height: 46px;
-    border: none;
-    border-radius: 3px;
-    clip-path: polygon(2% 0, 100% 0, 98% 100%, 0% 100%);
-    text-align: center;
-    font-weight: 400;
-    font-size: 24px;
 }
 .submit-email-btn {
     width: 156px;
