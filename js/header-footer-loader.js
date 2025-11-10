@@ -7,3 +7,17 @@ async function loadPartials() {
 }
 
 window.addEventListener('DOMContentLoaded', loadPartials);
+
+window.addEventListener('load', () => {
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".navbar-link");
+  console.log(navLinks);
+  navLinks.forEach(link => {
+    const linkPage = link.getAttribute("href");
+    console.log(linkPage);
+    console.log(currentPage);
+    if((linkPage === currentPage) || (currentPage === "" && linkPage === "index.html")){
+      link.classList.add("active");
+    }
+  })
+})
