@@ -4,20 +4,23 @@ async function loadPartials() {
 
   document.getElementById('header').innerHTML = header;
   document.getElementById('footer').innerHTML = footer;
+
+  
+  document.dispatchEvent(new Event('headerLoaded'));
 }
 
 window.addEventListener('DOMContentLoaded', loadPartials);
 
-window.addEventListener('load', () => {
+document.addEventListener('headerLoaded', () => {
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll(".navbar-link");
-  console.log(navLinks);
+
   navLinks.forEach(link => {
     const linkPage = link.getAttribute("href");
-    console.log(linkPage);
-    console.log(currentPage);
-    if((linkPage === currentPage) || (currentPage === "" && linkPage === "index.html")){
+    const linkPageSub = linkPage.substring(1);
+    console.log(linkPageSub);
+    if (linkPageSub === currentPage || (linkPageSub === "" && linkPageSub === "index.html")) {
       link.classList.add("active");
     }
-  })
-})
+  });
+});

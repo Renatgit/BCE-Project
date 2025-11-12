@@ -108,3 +108,24 @@ footer{
     font-weight: 400;
     font-size: 16px;
 }
+
+/*---Event card layout---*/
+.event-card{
+
+}
+.event-img-wrapper{
+    width: 304px;
+    height: 254px;
+    background-image: url(../img/event-cards/card-img-1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+}
+.event-card-line{
+    width: 1px;
+    height: 225px;
+    transform: rotate(9.5deg);
+    background-color: #1F1F1F;
+}
+
