@@ -1,0 +1,38 @@
+.hero-section{
+    width: 100%;
+    height: 50vh;
+}
+.hero-event-img{
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    filter: blur(1.5px);
+    z-index: -999;
+}
+.hero-event-title{
+    font-weight: 800;
+    font-size: 96px;
+    color: #fff;
+    z-index: 1;
+}
+.hero-event-location{
+    font-weight: 800;
+    font-size: 24px;
+    color: #fff;
+}
+.event-description-title{
+    font-weight: 700;
+    font-size: 40px;
+    color: #1f1f1f;
+    margin-top: 35px;
+}
+.event-description-box{
+    width: 80vw;
+    height: 597px;
+    background-color: #1f1f1f;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    margin-bottom: 50px;
+}
