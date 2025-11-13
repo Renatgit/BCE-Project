@@ -72,3 +72,9 @@
     top: 5px;
     margin-right: 5px;
 }
+.number-of-results-title{
+    font-weight: 800;
+    font-size: 40px;
+    color: #1F1F1F;
+    margin-bottom: 50px;
+}

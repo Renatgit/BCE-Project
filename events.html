@@ -14,6 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom CSS Files-->
     <link rel="stylesheet" href="styles/shared/hero.css">
+    <link rel="stylesheet" href="styles/shared/event-cards.css">
     <link rel="stylesheet" href="styles/events.css">
     <link rel="stylesheet" href="styles/global.css">
     <!--Scripts-->
@@ -64,21 +65,406 @@
         <h2 class="number-of-results-title">0 EVENT FOUND</h2>
 
         <!-- Scroll Container -->
-        <div class="events-list" id="eventsContainers">
+        <div class="events-list d-flex flex-column align-items-center" id="eventsContainer">
             <!-- Event Card -->
-            <div class="event-card d-flex flex-row align-items-center">
-                <div class="event-img-wrapper"></div>
-                <div class="event-card-line"></div>
-                <div class="event-card-text-content">
-                    <p class="event-card-title"></p>
-                    <p class="event-card-desciption"></p>
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
                 </div>
-                <div class="event-card-line"></div>
-                <div class="event-card-action-btns">
-                    
-                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
             </div>
 
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-2.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-3.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-4.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-2.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-3.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-4.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-2.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-3.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-4.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-2.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-3.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-4.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
+
+            <!-- Event Card -->
+            <div class="event-card d-flex flex-column align-items-center">
+                <div class="event-card-wrapper d-flex flex-row align-items-center">
+                    <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-text-content d-flex flex-column align-items-center">
+                        <p class="event-card-title">Result Title</p>
+                        <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                    </div>
+                    <div class="event-card-line"></div>
+                    <div class="event-card-action-btns d-flex flex-column align-items-center">
+                        <button class="events-more-details-btn">More Details</button>
+                        <button class="events-book-now-btn">BOOK NOW</button>
+                        <p class="event-date">21st Dec - 18:00</p>
+                    </div>
+                </div>
+                <!-- Card Separator -->
+                <div class="event-card-separator"></div>
+            </div>
         </div>
     </section>
 
