@@ -9,6 +9,5 @@ function matchBlockHeights() {
     });
 }
 
-
 window.addEventListener("load", matchBlockHeights);
 window.addEventListener("resize", matchBlockHeights);

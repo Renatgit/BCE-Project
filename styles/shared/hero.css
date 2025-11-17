@@ -20,3 +20,28 @@
     margin-top: 25px;
 }
 
+
+@media (max-height: 830px) { /* MacBooks, slimmer laptops */
+    .starter-content-main-text{
+        font-size: 82px;
+    }
+    .starter-content-secondary-text{
+        font-size: 22px;
+    }
+}  
+@media (max-height: 750px) { /* Older laptops (1366x768) */
+    .starter-content-main-text{
+        font-size: 72px;
+    }
+    .starter-content-secondary-text{
+        font-size: 20px;
+    }
+}  
+@media (max-height: 670px) { /* Minimum reasonable height */
+    .starter-content-main-text{
+        font-size: 64px;
+    }
+    .starter-content-secondary-text{
+        font-size: 16px;
+    }
+}  

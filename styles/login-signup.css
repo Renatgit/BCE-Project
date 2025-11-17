@@ -1,0 +1,31 @@
+.reg-form-box{
+    width: 1274px;
+    height: 597px;
+    background-color: #1f1f1f;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    margin-bottom: 50px;
+    padding: 0 50px;
+}
+.design-line{
+    height: 468px;
+    width: 1px;
+    transform: rotate(5deg);
+    background-color: #fff;
+}
+.input-label{
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+    margin-right: 17px;
+}
+.checkbox-label{
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    margin-left: 13px;
+}
+.reg-title {
+    font-weight: 800;
+    font-size: 40px;
+    color: #fff;
+}

@@ -23,7 +23,7 @@
     font-size: 24px;
     color: #fff;
 }
-.event-description-title{
+.event-description-section-title{
     font-weight: 700;
     font-size: 40px;
     color: #1f1f1f;
@@ -101,7 +101,7 @@
     font-size: 36px;
     font-weight: 700;
     color: #fff;
-    margin-top: -20px;
+    margin-top: -30px;
     margin-bottom: 30px;
 }
 .event-description-text{
@@ -120,4 +120,43 @@
 }
 .price-highlights{
     font-weight: 600;
+}
+
+@media screen and (max-width: 1400px) {
+    .event-description-box{
+        width: 1070px;
+    }
+    .design-line{
+        transform: rotate(4.5deg);
+    }
+}
+@media screen and (max-width: 1100px) {
+    .event-description-box{
+        width: 950px;
+        height: 400px;
+    }
+    .event-description-title{
+        font-size: 28px;
+    }
+    .event-description-text{
+        font-size: 18px;
+    }
+    .price-display{
+        font-size: 20px;
+    }
+    .design-line{
+        transform: rotate(5.8deg);
+        height: 310px;
+    }
+    .book-now-btn{
+        font-size: 18px;
+        width: 170px;
+    }
+    .contact-us-btn{
+        font-size: 18px;
+        width: 170px;
+    }
+    .event-description-content{
+        max-width: 500px;
+    }
 }

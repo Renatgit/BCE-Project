@@ -154,7 +154,6 @@
 }
 
 
-
 /*---"NEWSLETTER SUB" part content---*/
 .newsletter-section-wrapper{
     width: 100%;
@@ -253,5 +252,128 @@ input:checked + .slider:before {
 .newsletter-content-wrapper{
     height: 100%;
 }
-
-
+@media screen and (max-width: 1400px) {
+    .mySwiper {
+        width: 1090px;
+        height: 575px;
+        padding: 0px 60px !important;
+        clip-path: polygon(4.4% 0, 100% 0, 95.6% 100%, 0% 100%);
+    }
+    .custom-card {
+        background-color: #6B6B6B;
+        width: 370px !important;
+        border-radius: 3px;
+        margin-right: -45px !important;
+        clip-path: polygon(13% 0, 100% 0,87% 100%, 0% 100%);
+    }
+    .custom-next{
+        position: absolute;
+        right: 0px;
+        left: auto;
+        height: 100%;
+        width: 100px;
+        top: 0;
+        z-index: 10;
+        background-color: #1F1F1F;
+        clip-path: polygon(45% 0, 100% 0, 55% 100%, 0% 100%);
+        border-radius: 3px;
+    }
+    .custom-prev{
+        position: absolute;
+        left: 0px;
+        right: auto;
+        height: 100%;
+        width: 100px;
+        top: 0;
+        z-index: 10;
+        background-color: #1F1F1F;
+        clip-path: polygon(45% 0, 100% 0, 55% 100%, 0% 100%);
+        border-radius: 3px;
+    }
+    .card-content-wrapper{
+        position: relative;
+        bottom: 0px;
+        width: 100%;
+        height: 190px;
+        padding: 0 50px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .mySwiper {
+        width: 900px;
+        height: 500px;
+        padding: 0px 60px !important;
+        clip-path: polygon(5.2% 0, 100% 0, 94.8% 100%, 0% 100%);
+    }
+    .custom-card {
+        background-color: #6B6B6B;
+        width: 310px !important;
+        border-radius: 3px;
+        margin-right: -45px !important;
+        clip-path: polygon(14.8% 0, 100% 0, 85.2% 100%, 0% 100%);
+    }
+    .card-content-title{
+        font-size: 20px;
+        text-align: center;
+    }
+    .card-content-slogan{
+        font-size: 12px;
+    }
+    .custom-next{
+        position: absolute;
+        right: 0px;
+        left: auto;
+        height: 100%;
+        width: 90px;
+        top: 0;
+        z-index: 10;
+        background-color: #1F1F1F;
+        clip-path: polygon(45% 0, 100% 0, 55% 100%, 0% 100%);
+        border-radius: 3px;
+    }
+    .custom-prev{
+        position: absolute;
+        left: 0px;
+        right: auto;
+        height: 100%;
+        width: 90px;
+        top: 0;
+        z-index: 10;
+        background-color: #1F1F1F;
+        clip-path: polygon(45% 0, 100% 0, 55% 100%, 0% 100%);
+        border-radius: 3px;
+    }
+    .card-content-wrapper{
+        position: relative;
+        bottom: 0px;
+        width: 100%;
+        height: 190px;
+        padding: 0 50px;
+    }
+}
+@media screen and (max-width: 975px) {
+    .newsletter-content-box{
+        width: 800px;
+        height: 400px;
+        padding: 0 50px;
+    }
+    .newsletter-design-line{
+        height: 350px;
+        transform: rotate(8deg);
+    }
+    .newsletter-main-title{
+        font-size: 32px;
+    }
+    .newsletter-slogan-title{
+        font-size: 20px;
+    }
+    .submit-email-btn{
+        width: 146px;
+    }
+    .switch{
+        scale: 0.8;
+    }
+    .checkbox-description{
+        font-size: 14px;
+    }
+}

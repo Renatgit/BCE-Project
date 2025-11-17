@@ -120,3 +120,51 @@
   background: #D9D9D9;
   border-radius: 50px;
 }
+
+@media screen and (max-width: 1400px) {
+    .event-card-desciption{
+        font-size: 16px;
+    }
+    .event-card-title{
+        font-size: 28px;
+    }
+    .event-card-text-content{
+        width: 400px;
+    }
+    .event-img-wrapper{
+        scale: 0.8;
+    }
+    .event-card-action-btns{
+        scale: 0.8;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .event-card-desciption{
+        font-size: 12px;
+    }
+    .event-card-title{
+        font-size: 24px;
+    }
+    .event-card-text-content{
+        width: 270px;
+    }
+    .event-img-wrapper{
+        width: 250px;
+        height: 207px;
+    }
+    .event-card-action-btns{
+        margin: 0;
+    }
+    .event-card-line{
+        height: 200px;
+    }
+    .events-more-details-btn{
+        font-size: 20px;
+    }
+    .events-book-now-btn{
+        font-size: 20px;
+    }
+    .event-date{
+        font-size: 20px;
+    }
+}

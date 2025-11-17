@@ -78,3 +78,12 @@
     color: #1F1F1F;
     margin-bottom: 50px;
 }
+
+@media screen and (max-width: 1400px) {
+    .search-section-box{
+        width: 900px;
+    }
+    .search-box-design-line{
+        transform: rotate(7.5deg);
+    }
+}

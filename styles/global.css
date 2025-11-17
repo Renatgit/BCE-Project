@@ -49,7 +49,6 @@ h2{
     border: none;
 }
 .bce-login-btn{
-    padding: 10px 56px;
     font-size: 24px;
     background-color: #1F1F1F;
     padding: 10px 56px;
@@ -71,7 +70,95 @@ h2{
 .navbar-full{
     margin-right: 30px;
 }
+.navbar-links-only{
+    gap: 64px;
+}
+/*---Header Collapse---*/
+.navbar-toggler {
+    border: none;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+/* HEADER stays small */
+.side-menu{
+    display: none;
+}
+.site-header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
 
+/* Logo stays left */
+.site-header .logo {
+    height: 50px;
+}
+
+/* ABSOLUTE hamburger*/
+.hamburger-btn {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 50px;
+    height: 45px;
+    background: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #1f1f1f;
+    border-radius: 3px;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+.offcanvas {
+    background-color: #f9f9f9;
+}
+
+.mobile-nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-nav li {
+    margin-bottom: 25px;
+}
+
+.mobile-nav li a {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1f1f1f;
+    text-decoration: none;
+}
+.offcanvas-body{
+    padding: 20px;
+}
 /*---FOOTER + NAVBAR content---*/
 footer{
     display: flex;
@@ -112,4 +199,58 @@ footer{
     font-weight: 400;
     font-size: 16px;
 }
-
+@media screen and (max-width: 1400px) {
+    .navbar-link{
+        font-size: 22px;
+    }
+    .bce-login-btn{
+        padding: 8px 44px;
+        font-size: 22px;
+    }
+    .navbar-links-only{
+        gap: 30px;
+    }
+    .copyrights-p{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .navbar-link{
+        font-size: 20px;
+    }
+    .bce-logo{
+        margin-left: 60px;
+    }
+    .navbar-full{
+        margin-right: 10px;
+    }
+    .bce-login-btn{
+        font-size: 20px;
+    }
+    .navbar-links-only{
+        gap: 25px;
+    }
+}
+@media screen and (max-width: 975px) {
+    .navbar-full{
+        display: none !important;
+    }
+    .side-menu{
+        display: block;
+    }
+    .bce-login-btn{
+        position: absolute;
+        width: 80%;
+        bottom: 20px;
+        clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+    }
+    .default-input{
+        width: 450px;
+    }
+    .bce-logo{
+        scale: 0.9;
+    }
+    .footer-logo{
+        margin-left: -50px;
+    }
+}
