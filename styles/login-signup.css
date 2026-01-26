@@ -1,4 +1,4 @@
-.reg-form-box{
+.reg-form-box, .reg-form-box-signup{
     width: 1274px;
     height: 597px;
     background-color: #1f1f1f;
@@ -13,6 +13,8 @@
     background-color: #fff;
 }
 .input-label{
+    width: 205px;
+    text-align: end;
     font-weight: 600;
     font-size: 24px;
     color: #fff;
@@ -28,4 +30,134 @@
     font-weight: 800;
     font-size: 40px;
     color: #fff;
+    margin-top: 40px;
 }
+.helper-text{
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+.submit-btn{
+    width: 200px;
+    height: 59px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1F1F1F;
+    border: none;
+    background-color: #fff;
+    border-radius: 3px;
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%) !important;
+}
+.reg-content{
+    height: 100%;
+}
+.reg-form{
+    height: 100%;
+    
+}
+.reg-field{
+    flex-direction: row;
+    align-items: center;
+}
+@media screen and (max-width: 1400px) {
+    .reg-form-box, .reg-form-box-signup{
+        width: 1070px;
+    }
+    .design-line{
+        transform: rotate(4.5deg);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .reg-form-box{
+        width: 950px;
+        height: 450px;
+    }
+    .reg-form-box-signup{
+        width: 950px;
+        height: 550px;
+    }
+    .design-line{
+        transform: rotate(5.8deg);
+        height: 400px;
+    }
+    .reg-content{
+        gap: 40px !important;
+    }
+    .reg-title{
+        font-size: 32px;
+    }
+    .input-label{
+        font-size: 20px;
+    }
+    .submit-btn{
+        width: 170px;
+        height: 52px;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    .reg-form-box, .reg-form-box-signup{
+        width: 670px;
+        height: 700px;
+        clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    }
+    .design-line{
+        transform: rotate(3.5deg);
+        height: 600px;
+    }
+    .reg-content{
+        gap: 80px;
+    }
+    
+    .reg-title{
+        font-size: 32px;
+        margin-top: 50px;
+    }
+    .input-label{
+        font-size: 20px;
+    }
+    .submit-btn{
+        width: 170px;
+        height: 52px;
+    }
+    .reg-field{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .input-label{
+        text-align: start;
+    }
+}
+/* @media screen and (max-width: 700px) {
+    .reg-form-box{
+        width: 570px;
+        height: 700px;
+        clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    }
+    .design-line{
+        transform: rotate(3.5deg);
+        height: 600px;
+        display: none;
+    }
+    .reg-content{
+        gap: 80px;
+    }
+    .reg-title{
+        font-size: 32px;
+        margin-top: 50px;
+    }
+    .input-label{
+        font-size: 20px;
+    }
+    .submit-btn{
+        width: 170px;
+        height: 52px;
+    }
+    .reg-field{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+} */

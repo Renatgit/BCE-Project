@@ -230,6 +230,9 @@ footer{
     .navbar-links-only{
         gap: 25px;
     }
+    .default-input{
+        width: 450px;
+    }
 }
 @media screen and (max-width: 975px) {
     .navbar-full{
