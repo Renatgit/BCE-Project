@@ -17,7 +17,7 @@ document.addEventListener('headerLoaded', () => {
   navLinks.forEach(link => {
     const linkPage = link.getAttribute("href");
     const linkPageSub = linkPage.substring(1);
-    console.log(linkPageSub);
+    // console.log(linkPageSub);
     if (linkPageSub === currentPage || (currentPage === "" && linkPageSub === "index.html")) {
       link.classList.add("active");
     }
