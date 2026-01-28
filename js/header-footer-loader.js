@@ -14,13 +14,32 @@ window.addEventListener('DOMContentLoaded', loadPartials);
 document.addEventListener('headerLoaded', () => {
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll(".navbar-link");
-
   navLinks.forEach(link => {
     const linkPage = link.getAttribute("href");
     const linkPageSub = linkPage.substring(1);
     console.log(linkPageSub);
-    if (linkPageSub === currentPage || (linkPageSub === "" && linkPageSub === "index.html")) {
+    if (linkPageSub === currentPage || (currentPage === "" && linkPageSub === "index.html")) {
       link.classList.add("active");
     }
   });
+
+  const authBtns = document.querySelectorAll(".authBtn");
+  if (!authBtns.length) return;
+  
+  // Default behaviour (Login on every page)
+  let label = "Login";
+  let target = "login.html";
+
+  // On login page show Sign up
+  if (currentPage === "login.html") {
+    label = "Sign Up";
+    target = "signUp.html";
+  }
+  authBtns.forEach(btn => {
+    btn.textContent = label;
+    btn.onclick = () => {
+      window.location.href = target;
+    }
+  }
+  );
 });
