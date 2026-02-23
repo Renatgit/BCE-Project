@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCE - Login</title>
+    <link rel="icon" href="img/BCE_Logo_White_NoText(favicon2).png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom CSS Files-->
+    <link rel="stylesheet" href="styles/account.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/shared/event-cards.css">
+    <!--Scripts-->
+    <script src="js/script.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+
+    <!--Profile Section-->
+    <div class="profile-info-wrapper d-flex flex-column align-items-center">
+        <div class="pic-name-content d-flex flex-row align-items-center">
+            <button type="button" class="change-pic-btn">Change Picture</button>
+            <div class="pic-name-block d-flex flex-column align-items-center">
+                <div class="profile-container">
+                    <div class="profile-img-wrapper">
+                        <img src="img/blank-profile-picture-973460_640 1.png" alt="Profile Picture">
+                    </div>
+                </div>
+                <span class="profile-greeting">Hi, {{Username}}</span>
+            </div>
+            <button type="button" class="delete-pic-btn">Delete Picture</button>
+        </div>
+        <div class="profile-details-content">
+            <div class="profile-editable-content">
+                <div class="profile-block d-flex flex-column align-items-center justify-content-around">
+                    <span class="profile-block-title">Username</span>
+                    <span class="profile-block-data">@username</span>
+                    <button type="button" class="change-pic-btn" style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;">
+                        <img src="img/Icons/edit_WHITE 1.png" alt="Edit Username">
+                    </button>
+                </div>
+                <div class="profile-block d-flex flex-column align-items-center justify-content-around">
+                    <span class="profile-block-title">Email</span>
+                    <span class="profile-block-data">youremail@email.com</span>
+                    <button type="button" class="change-pic-btn" style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;">
+                        <img src="img/Icons/edit_WHITE 1.png" alt="Edit Username">
+                    </button>
+                </div>
+                <div class="profile-block d-flex flex-column align-items-center justify-content-around">
+                    <span class="profile-block-title">Phone Number</span>
+                    <span class="profile-block-data">+44 00 0000 0000</span>
+                    <button type="button" class="change-pic-btn" style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;">
+                        <img src="img/Icons/edit_WHITE 1.png" alt="Edit Username">
+                    </button>
+                </div>
+            </div>
+            <div class="profile-static-content">
+                <div class="profile-block d-flex flex-column align-items-center justify-content-around">
+                    <span class="profile-block-title">Events Attended</span>
+                    <span class="profile-block-data">0</span>
+                    <div style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;"></div>
+                </div>
+                <div class="profile-block d-flex flex-column align-items-center justify-content-around">
+                    <span class="profile-block-title">Reviews Left</span>
+                    <span class="profile-block-data">0</span>
+                    <div style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;"></div>
+                </div>
+                <div class="profile-block d-flex flex-column align-items-center justify-content-around">
+                    <span class="profile-block-title">Loyalty Points</span>
+                    <span class="profile-block-data">1000</span>
+                    <div style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Users Bookings Section-->
+    <div class="profile-bookings d-flex flex-column align-items-center">
+        <span class="profile-bookings-title">Your Bookings</span>
+        <div class="event-toggle">
+            <button class="toggle-option active-toggle" data-type="upcoming">
+                Upcoming
+            </button>
+            <button class="toggle-option" data-type="past">
+                Past
+            </button>
+        </div>
+
+        <!-- SEARCH RESULTS SECTION -->
+        <main class="result-display-wrapper d-flex flex-column align-items-center">
+            <h2 class="number-of-results-title">0 EVENT FOUND</h2>
+
+            <!-- Scroll Container -->
+            <div class="events-list d-flex flex-column align-items-center" id="eventsContainer">
+                <!-- Event Card -->
+                <div class="event-card d-flex flex-column align-items-center">
+                    <div class="event-card-wrapper d-flex flex-row align-items-center">
+                        <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                        <div class="event-card-line"></div>
+                        <div class="event-card-text-content d-flex flex-column align-items-center">
+                            <p class="event-card-title">Result Title</p>
+                            <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                        </div>
+                        <div class="event-card-line"></div>
+                        <div class="event-card-action-btns d-flex flex-column align-items-center">
+                            <button class="events-more-details-btn" onclick="window.location.href='event.html';">More Details</button>
+                            <button class="events-book-now-btn">BOOK NOW</button>
+                            <p class="event-date">21st Dec - 18:00</p>
+                        </div>
+                    </div>
+                    <!-- Card Separator -->
+                    <div class="event-card-separator"></div>
+                </div>
+
+                <!-- Event Card -->
+                <div class="event-card d-flex flex-column align-items-center">
+                    <div class="event-card-wrapper d-flex flex-row align-items-center">
+                        <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-2.png);"></div>
+                        <div class="event-card-line"></div>
+                        <div class="event-card-text-content d-flex flex-column align-items-center">
+                            <p class="event-card-title">Result Title</p>
+                            <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                        </div>
+                        <div class="event-card-line"></div>
+                        <div class="event-card-action-btns d-flex flex-column align-items-center">
+                            <button class="events-more-details-btn">More Details</button>
+                            <button class="events-book-now-btn">BOOK NOW</button>
+                            <p class="event-date">21st Dec - 18:00</p>
+                        </div>
+                    </div>
+                    <!-- Card Separator -->
+                    <div class="event-card-separator"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!--Loyalty Card Section-->
+    <div class="loyalty-section-wrapper d-flex flex-column align-items-center justify-content-center">
+        <div class="loyalty-content-box d-flex flex-row align-items-center justify-content-between">
+            <div class="loyalty-design-line"></div>
+            <div class="loyalty-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                <div class="loyalty-form-title d-flex flex-column align-items-center" style="margin-top: -30px; margin-bottom: 20px;">
+                    <p class="loyalty-main-title">Loyalty Card</p>
+                    <p class="loyalty-slogan-title">Sign up for outstanding reward and discounts</p>
+                </div>
+                <div class="sign-up-box d-flex flex-column align-items-center" style="gap: 20px;">
+                    <img src="img/Icons/member-card 1.svg" alt="Member Card Icon">
+                    <input type="submit" value="Sign Up" class="submit-card-btn">
+                </div>
+                <div class="agreement-checkboxes d-flex flex-column align-items-center" style="gap: 5px;">
+                    <div class="upcoming-events-check d-flex flex-row align-items-center" style="gap: 10px;">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <p class="checkbox-description">Accept receiving the notification about personalised offers and early discounts*</p>
+                    </div>
+                </div>
+            </div>
+            <div class="loyalty-design-line"></div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+</body>
+<script>
+    document.querySelectorAll(".toggle-option").forEach(btn => {
+        btn.addEventListener("click", () => {
+        // remove active from all
+        document.querySelectorAll(".toggle-option")
+        .forEach(b => b.classList.remove("active-toggle"));
+
+        // add active to clicked one
+        btn.classList.add("active-toggle");
+
+        const type = btn.dataset.type;
+        console.log("Selected:", type);
+
+        // Later: here you’ll filter events
+        });
+    });
+</script>
+</html>

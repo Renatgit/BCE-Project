@@ -120,6 +120,12 @@
   background: #D9D9D9;
   border-radius: 50px;
 }
+.number-of-results-title{
+    font-weight: 800;
+    font-size: 40px;
+    color: #1F1F1F;
+    margin-bottom: 50px;
+}
 
 @media screen and (max-width: 1400px) {
     .event-card-desciption{

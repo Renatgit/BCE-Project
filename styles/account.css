@@ -1,0 +1,351 @@
+.change-pic-btn{
+    width: 188px;
+    height: 54px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #1F1F1F;
+    color: #fff;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    padding: 10px 0px;
+    border: none;
+    margin-left: 24px;
+}
+.change-pic-btn:hover{
+    background-color: rgb(27, 27, 27);
+    transition: 1s;
+}
+.change-pic-btn:active{
+    background-color: #000000 !important;
+    transition: 0.1s;
+}
+.delete-pic-btn {
+    width: 188px;
+    height: 54px;
+    position: relative;
+    font-weight: 600;
+    font-size: 20px;
+    color: #1F1F1F;
+    background-color: #fff;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    padding: 10px 0px;
+    cursor: pointer;
+    z-index: 1;
+    border: none; 
+    transition: 1s;
+}
+
+.delete-pic-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #1F1F1F;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    z-index: -2;
+    transition: 1s;
+}
+.delete-pic-btn::after {
+    content: "";
+    position: absolute;
+    inset: 3px; 
+    background-color: #fff; 
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    z-index: -1;
+    transition: 1s;
+}
+.delete-pic-btn:hover{
+    color: #fff;
+    transition: 1s;
+}
+.delete-pic-btn:hover::before{
+    background-color: #1F1F1F;
+    transition: 1s;
+}
+.delete-pic-btn:hover::after{
+    background-color: #1F1F1F;
+    transition: 1s;
+}
+/* .profile-img-wrapper{
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    margin: 0 20px 10px 20px;
+} */
+.profile-greeting{
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 60px;
+}
+
+
+.profile-img-wrapper {
+  position: relative;
+  width: 200px;
+  overflow: visible;
+}
+
+.profile-img-wrapper img {
+  width: 100%;
+  display: block;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+
+/* LEFT vertical */
+.profile-img-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 1px;       
+  height: 90%;     
+  background: #000;
+  left: -10px;
+  top: -5%;
+  transform: rotate(6deg);
+}
+
+/* RIGHT vertical */
+.profile-img-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 90%;
+  background: #000;
+  right: -10px;
+  top: 15%;
+  transform: rotate(6deg);
+}
+.profile-container {
+  position: relative;
+  display: inline-block;
+  margin: 0 40px 20px 40px;
+}
+
+.profile-container::before,
+.profile-container::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 1px;
+  background: #000;
+  transform: translateX(-50%);
+}
+
+.profile-container::before {
+  top: -15px;
+  left: 65%;
+}
+
+.profile-container::after {
+  bottom: -15px;
+  left: 35%;
+}
+
+.profile-block-title{
+    font-size: 32px;
+    font-weight: 600;
+}
+.profile-block-data{
+    font-size: 28px;
+    font-weight: 400;
+}
+.profile-block{
+    position: relative;
+    width: 417px;
+    height: 196px;
+    border-radius: 3px;
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+}
+.profile-block::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background-color: #1F1F1F;
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    z-index: -2;
+    transition: 1s;
+}
+.profile-block::after {
+    content: "";
+    position: absolute;
+    inset: 4px; 
+    background-color: #fff; 
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    z-index: -1;
+    transition: 1s;
+}
+.profile-editable-content{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.profile-static-content{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.profile-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.profile-info-wrapper{
+    padding: 60px 0;
+}
+.profile-bookings-title {
+    font-size: 36px;
+    font-weight: 600;
+}
+.event-toggle {
+    position: relative;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 507px;
+    height: 90px;
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    overflow: visible;
+}
+
+.toggle-option {
+    width: 269px;
+    height: auto;
+    padding: 12px 0px;
+    font-size: 32px;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #1F1F1F;
+    border-radius: 5px;
+    clip-path: polygon(9% 0%, 100% 0%, 91% 100%, 0% 100%);
+    transition: 0.3s;
+}
+
+/* Active state */
+.toggle-option.active-toggle {
+    height: 80%;
+    width: 80%;
+    background: #1F1F1F;
+    color: #fff;
+}
+
+.event-toggle::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background-color: #1F1F1F;
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    z-index: -2;
+    transition: 1s;
+}
+.event-toggle::after {
+    content: "";
+    position: absolute;
+    inset: 4px; 
+    background-color: #fff; 
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    z-index: -1;
+    transition: 1s;
+}
+.profile-bookings{
+    padding-top: 40px;
+    gap: 40px;
+}
+
+/*---"NEWSLETTER SUB" part content---*/
+.loyalty-section-wrapper{
+    width: 100%;
+    min-height: 600px;
+}
+.loyalty-content-box{
+    width: 960px;
+    height: 450px;
+    background-color: #1F1F1F;
+    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+    border-radius: 3px;
+    padding: 0 60px;
+}
+.loyalty-design-line{
+    height: 383px;
+    width: 1px;
+    background-color: #fff;
+    transform: rotate(8.5deg);
+}
+.loyalty-main-title{
+    font-weight: 600;
+    font-size: 40px;
+    color: #fff;
+}
+.loyalty-slogan-title{
+    font-weight: 400;
+    font-size: 24px;
+    color: #fff;
+}
+.submit-card-btn {
+    width: 156px;
+    height: 47px;
+    background-color: #fff;
+    transition: 1s;
+    border: none;
+    border-radius: 3px;
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0% 100%);
+    font-weight: 700;
+    font-size: 20px;
+    color: #1F1F1F;
+}
+.submit-email-btn:hover{
+    background-color: #ededed;
+    transition: 1s;
+}
+.submit-email-btn:active{
+    background-color: #a5a5a5;
+    transition: 1s;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  display: none;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #505050;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #404040;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: #fff;
+}
+.checkbox-description{
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+.newsletter-content-wrapper{
+    height: 100%;
+}

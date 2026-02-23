@@ -35,6 +35,10 @@ document.addEventListener('headerLoaded', () => {
     label = "Sign Up";
     target = "signUp.html";
   }
+  if(currentPage === "account.html"){
+    label = "My Account"
+    target = "account.html";
+  }
   authBtns.forEach(btn => {
     btn.textContent = label;
     btn.onclick = () => {
