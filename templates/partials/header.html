@@ -1,15 +1,15 @@
 <header class="d-flex align-items-center justify-content-between" style="padding: 20px 0px;">
-    <a href="/index.html">
-        <img src="../img/BCE_Logo_Black_Text(final).png" alt="BCE Logo" class="img-fluid bce-logo" width="220px" height="auto">
+    <a href="/index">
+        <img src="{{ url_for('static', filename='img/BCE_Logo_Black_Text(final).png') }}" alt="BCE Logo" class="img-fluid bce-logo" width="220px" height="auto">
     </a>
     <a href="#" class="dark-mode-center">
-        <img src="../img/Icons/darkmode-icon.png" alt="Dark mode icon">
+        <img src="{{ url_for('static', filename='img/Icons/darkmode-icon.png') }}" alt="Dark mode icon">
     </a>
     <nav class="d-flex navbar-full">
         <div class="d-flex align-items-center navbar-links-only">
-            <a href="/index.html" class="navbar-link"><span>Home</span></a>
-            <a href="/events.html" class="navbar-link"><span>Events</span></a>
-            <a href="/aboutUs.html" class="navbar-link"><span>About Us</span></a>
+            <a href="/index" class="navbar-link"><span>Home</span></a>
+            <a href="/events" class="navbar-link"><span>Events</span></a>
+            <a href="/aboutus" class="navbar-link"><span>About Us</span></a>
         </div>
         <button type="button" class="btn btn-primary bce-btn bce-login-btn authBtn">Login</button>
     </nav>
@@ -32,10 +32,10 @@
 
                 <div class="offcanvas-body">
                     <ul class="mobile-nav">
-                    <li><a class="navbar-link" href="index.html">Home</a></li>
-                    <li><a class="navbar-link" href="events.html">Events</a></li>
-                    <li><a class="navbar-link" href="about.html">About Us</a></li>
-                    <li><a class="navbar-link" href="contact.html">Contact Us</a></li>
+                    <li><a class="navbar-link" href="/index">Home</a></li>
+                    <li><a class="navbar-link" href="/events">Events</a></li>
+                    <li><a class="navbar-link" href="/aboutus">About Us</a></li>
+                    <!-- <li><a class="navbar-link" href="contact">Contact Us</a></li> -->
                     </ul>
                     <button type="button" class="btn btn-primary bce-btn bce-login-btn authBtn">Login</button>
                 </div>

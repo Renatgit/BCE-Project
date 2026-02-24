@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}BCE | Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/shared/hero.css') }}">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+{% endblock %}
+
+{% block content %}
+<!-- STARTER SECTION -->
+<div class="starter-content d-flex align-items-center matchHeights">
+    <img 
+        src="{{url_for('static', filename='img/bg-imgs/Main img.png')}}" alt="People On Event Background Picture" class=""
+        style="position: absolute; z-index: -1; left: 0; object-fit: cover;" width="100%" height="100%"
+    >
+    <div class="d-flex flex-column">
+        <p class="starter-content-main-text">
+            DISCOVER<br>
+            BRISTOL’S<br>
+            MOST<br>
+            BREATHTAKING<br>
+            EVENTS
+        </p>
+        <p class="starter-content-secondary-text">
+            From festivals to workshops — find, book, and experience it all.
+        </p>
+    </div>
+</div>
+
+<!-- EVENTS SECTION -->
+<div class="events d-flex flex-column align-items-center">
+    <div class="events-header d-flex align-items-center justify-content-center">
+        <h2 class="events-header-text">Events</h2>
+    </div>
+    <div class="content-cards">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Card 1 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/Upcoming-Events-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Upcoming Events</h3>
+                        <p class="card-content-slogan">See what’s happening soon — and don’t blink.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/PEPL-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Plan Early. Pay Less.</h3>
+                        <p class="card-content-slogan">Get ahead of the crowd <br> and grab your early-access deal.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/HoTM-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Highlights of the Month</h3>
+                        <p class="card-content-slogan">Handpicked events <br> lighting up Bristol this month.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/Past-Events-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Past Events</h3>
+                        <p class="card-content-slogan">Where memories were <br> made — and more await.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+
+                <!-- Duplicated - so it's enough for the Swiper loop -->
+                <!-- Card 1 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/Upcoming-Events-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Upcoming Events</h3>
+                        <p class="card-content-slogan">See what’s happening soon — and don’t blink.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/PEPL-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Plan Early. Pay Less.</h3>
+                        <p class="card-content-slogan">Get ahead of the crowd <br> and grab your early-access deal.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/HoTM-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Highlights of the Month</h3>
+                        <p class="card-content-slogan">Handpicked events <br> lighting up Bristol this month.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="swiper-slide custom-card d-flex align-items-end">
+                    <img src="{{url_for('static', filename='img/bg-imgs/Past-Events-Card.png')}}" alt="" class="card-bg-img">
+                    <div class="card-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+                        <h3 class="card-content-title">Past Events</h3>
+                        <p class="card-content-slogan">Where memories were <br> made — and more await.</p>
+                        <a href="#" class="see-more-link"><span>See more...</span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Navigation -->
+            <div class="custom-next d-flex align-items-center justify-content-center">
+                <img src="{{ url_for('static', filename='img/Icons/icon_next.png') }}" alt="">
+            </div>
+            <div class="custom-prev d-flex align-items-center justify-content-center">
+                <img src="{{ url_for('static', filename='img/Icons/icon_prev.png') }}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="events-design-line"></div>
+    <button type="button" class="btn btn-primary bce-btn bce-search-more-btn" onclick="window.location.href='/events';">Search more events</button>
+</div>
+<!-- ABOUT US SECTION -->
+<div class="about-us matchHeights d-flex flex-column align-items-center">
+    <img 
+        src="{{ url_for('static', filename='img/bg-imgs/about-us.png') }}" alt="People On Event Background Picture" class="bg-img"
+        style="position: absolute; z-index: -1; left: 0; object-fit: cover;" width="100%" height="100%"
+    >
+    <h2 class="about-us-heading">Bristol Community Events (BCE)</h2>
+    <div 
+        class="about-us-content-wrapper
+            d-flex flex-row align-items-center justify-content-around"
+        >
+        <div class="about-us-design d-flex flex-row align-items-center">
+            <div class="about-us-left-line"></div>
+            <div  class="about-us-design-text">
+                <p class="starter-content-main-text">
+                    A<br>
+                    <img 
+                        src="{{ url_for('static', filename='img/BCE_Logo_White_NoText.png') }}" alt="" 
+                        width="301px" style="margin: -70px -85px;"
+                        >
+                    <br>
+                    O<br>
+                    US<br>
+                    T
+                </p>
+            </div>
+        </div>
+        <div class="about-us-text-content d-flex flex-column align-items-center" style="gap: 10px;">
+            <p class="about-us-p">
+                We make the moments that move<br>
+                Bristol — connecting communities,<br> 
+                filling streets with sound,<br> 
+                and turning the city’s energy into<br> 
+                experiences you’ll never forget
+            </p>
+            <div class="about-us-underline"></div>
+            <a href="/aboutus" class="learn-more-link">
+                <span>Learn more...</span>
+            </a>
+        </div>
+    </div>
+    <h2 class="about-us-heading" style="visibility: hidden;">Bristol Community Events (BCE)</h2>
+</div>
+<!-- NEWSLETTER SECTION -->
+<div class="newsletter-section-wrapper d-flex flex-column align-items-center justify-content-center">
+    <div class="newsletter-content-box d-flex flex-row align-items-center justify-content-between">
+        <div class="newsletter-design-line"></div>
+        <div class="newsletter-content-wrapper d-flex flex-column align-items-center justify-content-evenly">
+            <div class="newsletter-form-title d-flex flex-column align-items-center" style="margin-top: -30px; margin-bottom: 20px;">
+                <p class="newsletter-main-title">Newsletter. Events. Deals.</p>
+                <p class="newsletter-slogan-title">Straight from Bristol’s heartbeat to your inbox.</p>
+            </div>
+            <form action="#">
+                <input type="text" placeholder="bristolvibes@you.com" class="default-input">
+                <input type="submit" value="Submit @" class="submit-email-btn">
+            </form>
+            <div class="agreement-checkboxes d-flex flex-column align-items-center" style="gap: 5px;">
+                <div class="upcoming-events-check d-flex flex-row align-items-center" style="gap: 10px;">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <p class="checkbox-description">Accept receiving the notification about the upcoming and freshly added events*</p>
+                </div>
+                <div class="personalised-offers-check d-flex flex-row align-items-center" style="gap: 10px;">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <p class="checkbox-description">Accept receiving the notification about personalised offers and early discounts* </p>
+                </div>
+            </div>
+        </div>
+        <div class="newsletter-design-line"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script src="{{ url_for('static', filename='js/swiper-init.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

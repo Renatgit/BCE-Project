@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCE - Login</title>
-    <link rel="icon" href="img/BCE_Logo_White_NoText(favicon2).png">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS Bundle-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom CSS Files-->
-    <link rel="stylesheet" href="styles/account.css">
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/shared/event-cards.css">
-    <!--Scripts-->
-    <script src="js/script.js"></script>
-    <script src="js/header-footer-loader.js"></script>
-</head>
-<body>
-    <div id="header"></div>
+{% block title %}BCE - Login{% endblock %}
 
-    <!--Profile Section-->
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/shared/event-cards.css') }}">
+{% endblock %}
+
+{% block content %}
+<!--Profile Section-->
     <div class="profile-info-wrapper d-flex flex-column align-items-center">
         <div class="pic-name-content d-flex flex-row align-items-center">
             <button type="button" class="change-pic-btn">Change Picture</button>
             <div class="pic-name-block d-flex flex-column align-items-center">
                 <div class="profile-container">
                     <div class="profile-img-wrapper">
-                        <img src="img/blank-profile-picture-973460_640 1.png" alt="Profile Picture">
+                        <img src="{{ url_for('static', filename='img/blank-profile-picture-973460_640 1.png') }}" alt="Profile Picture">
                     </div>
                 </div>
                 <span class="profile-greeting">Hi, {{Username}}</span>
@@ -41,21 +30,21 @@
                     <span class="profile-block-title">Username</span>
                     <span class="profile-block-data">@username</span>
                     <button type="button" class="change-pic-btn" style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;">
-                        <img src="img/Icons/edit_WHITE 1.png" alt="Edit Username">
+                        <img src="{{ url_for('static', filename='img/Icons/edit_WHITE 1.png') }}" alt="Edit Username">
                     </button>
                 </div>
                 <div class="profile-block d-flex flex-column align-items-center justify-content-around">
                     <span class="profile-block-title">Email</span>
                     <span class="profile-block-data">youremail@email.com</span>
                     <button type="button" class="change-pic-btn" style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;">
-                        <img src="img/Icons/edit_WHITE 1.png" alt="Edit Username">
+                        <img src="{{ url_for('static', filename='img/Icons/edit_WHITE 1.png') }}" alt="Edit Username">
                     </button>
                 </div>
                 <div class="profile-block d-flex flex-column align-items-center justify-content-around">
                     <span class="profile-block-title">Phone Number</span>
                     <span class="profile-block-data">+44 00 0000 0000</span>
                     <button type="button" class="change-pic-btn" style="width: 150px; height: 49px; border-radius: 3px; padding: 0 0 5px 0; margin: 0;">
-                        <img src="img/Icons/edit_WHITE 1.png" alt="Edit Username">
+                        <img src="{{ url_for('static', filename='img/Icons/edit_WHITE 1.png') }}" alt="Edit Username">
                     </button>
                 </div>
             </div>
@@ -100,7 +89,7 @@
                 <!-- Event Card -->
                 <div class="event-card d-flex flex-column align-items-center">
                     <div class="event-card-wrapper d-flex flex-row align-items-center">
-                        <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-1.png);"></div>
+                        <div class="event-img-wrapper" style="background-image: url('{{ url_for('static', filename='img/event-cards/card-img-1.png') }}');"></div>
                         <div class="event-card-line"></div>
                         <div class="event-card-text-content d-flex flex-column align-items-center">
                             <p class="event-card-title">Result Title</p>
@@ -108,7 +97,7 @@
                         </div>
                         <div class="event-card-line"></div>
                         <div class="event-card-action-btns d-flex flex-column align-items-center">
-                            <button class="events-more-details-btn" onclick="window.location.href='event.html';">More Details</button>
+                            <button class="events-more-details-btn" onclick="window.location.href='/event';">More Details</button>
                             <button class="events-book-now-btn">BOOK NOW</button>
                             <p class="event-date">21st Dec - 18:00</p>
                         </div>
@@ -120,7 +109,7 @@
                 <!-- Event Card -->
                 <div class="event-card d-flex flex-column align-items-center">
                     <div class="event-card-wrapper d-flex flex-row align-items-center">
-                        <div class="event-img-wrapper" style="background-image: url(../../img/event-cards/card-img-2.png);"></div>
+                        <div class="event-img-wrapper" style="background-image: url('{{ url_for('static', filename='img/event-cards/card-img-2.png') }}');"></div>
                         <div class="event-card-line"></div>
                         <div class="event-card-text-content d-flex flex-column align-items-center">
                             <p class="event-card-title">Result Title</p>
@@ -150,10 +139,10 @@
                     <p class="loyalty-slogan-title">Sign up for outstanding reward and discounts</p>
                 </div>
                 <div class="sign-up-box d-flex flex-column align-items-center" style="gap: 20px;">
-                    <img src="img/Icons/member-card 1.svg" alt="Member Card Icon">
+                    <img src="{{ url_for('static', filename='img/Icons/member-card 1.svg') }}" alt="Member Card Icon">
                     <input type="submit" value="Sign Up" class="submit-card-btn">
                 </div>
-                <div class="agreement-checkboxes d-flex flex-column align-items-center" style="gap: 5px;">
+                <div class="agreement-checkboxezs d-flex flex-column align-items-center" style="gap: 5px;">
                     <div class="upcoming-events-check d-flex flex-row align-items-center" style="gap: 10px;">
                         <label class="switch">
                             <input type="checkbox">
@@ -166,24 +155,9 @@
             <div class="loyalty-design-line"></div>
         </div>
     </div>
+{% endblock %}
 
-    <div id="footer"></div>
-</body>
-<script>
-    document.querySelectorAll(".toggle-option").forEach(btn => {
-        btn.addEventListener("click", () => {
-        // remove active from all
-        document.querySelectorAll(".toggle-option")
-        .forEach(b => b.classList.remove("active-toggle"));
-
-        // add active to clicked one
-        btn.classList.add("active-toggle");
-
-        const type = btn.dataset.type;
-        console.log("Selected:", type);
-
-        // Later: here you’ll filter events
-        });
-    });
-</script>
-</html>
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

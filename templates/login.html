@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCE - Login</title>
-    <link rel="icon" href="img/BCE_Logo_White_NoText(favicon2).png">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS Bundle-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom CSS Files-->
-    <link rel="stylesheet" href="styles/login-signup.css">
-    <link rel="stylesheet" href="styles/global.css">
-    <!--Scripts-->
-    <script src="js/script.js"></script>
-    <script src="js/header-footer-loader.js"></script>
-</head>
-<body>
-    <div id="header"></div>
-    <section class="reg-section-wrapper d-flex flex-column align-items-center" style="margin: 64px 0;">
+{% block title %}BCE - Login{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/login-signup.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/global.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="reg-section-wrapper d-flex flex-column align-items-center" style="margin: 64px 0;">
         <div class="reg-form-box d-flex flex-row align-items-center justify-content-between">
             <div class="design-line"></div>
             <div class="reg-content d-flex flex-column align-items-center justify-content-start" style="gap: 100px;">
@@ -38,12 +28,15 @@
                         <label for="" class="checkbox-label">Show Password</label>
                     </div>
                     <input type="submit" value="Login" class="submit-btn" style="margin-top: 40px;">
-                    <p class="helper-text">Don't have an account? Sign Up <a href="signUp.html" style="text-decoration: underline; color: #fff;">here</a> now!</p>
+                    <p class="helper-text">Don't have an account? Sign Up <a href="/signup" style="text-decoration: underline; color: #fff;">here</a> now!</p>
                 </form>
             </div>
             <div class="design-line"></div>
         </div>
     </section>
-    <div id="footer"></div>
-</body>
-</html>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

@@ -2,18 +2,18 @@
     <div class="separation-line-footer"></div>
     <div class="footer-content-wrapper d-flex flex-row align-items-center justify-content-between">
         <div class="flex-same-size-footer" style="padding-left: 10vw;">
-            <img src="../img/BCE_Logo_Black_Text(final).png" alt="BCE Logo" class="img-fluid footer-logo" width="180px" height="auto">
+            <img src="{{ url_for('static', filename='img/BCE_Logo_Black_Text(final).png') }}" alt="BCE Logo" class="img-fluid footer-logo" width="180px" height="auto">
         </div>
         <div class="links-wrapper d-flex flex-row justify-content-between align-items-center flex-same-size-footer">
             <div class="links-block">
-                <a href="/index.html"><span>Home</span></a>
-                <a href="/events.html"><span>Book Events</span></a>
-                <a href=""><span>Your Account</span></a>
+                <a href="/index"><span>Home</span></a>
+                <a href="/events"><span>Book Events</span></a>
+                <a href="/account"><span>Your Account</span></a>
             </div>
             <div class="links-block">
-                <a href=""><span>Contact Us</span></a>
-                <a href="/aboutUs.html"><span>About</span></a>
-                <a href=""><span>Terms and Conditions</span></a>
+                <a href="/contact"><span>Contact Us</span></a>
+                <a href="/aboutus"><span>About</span></a>
+                <a href="/terms"><span>Terms and Conditions</span></a>
             </div>
         </div>
         <div class="copyrights-wrapper flex-same-size-footer">
