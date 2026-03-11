@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import dbfunc
 
 app = Flask(__name__)
 
@@ -9,11 +10,19 @@ def home():
 
 @app.route("/events")
 def events():
-    return render_template("events.html")
+    events = dbfunc.getAllEvents()
+    return render_template(
+        "events.html",
+        events=events
+    )
 
-@app.route("/event")
-def event():
-    return render_template("event.html")
+@app.route("/event/<int:event_id>")
+def event(event_id):
+    event = dbfunc.getEventById(event_id)
+    if event is None:
+        return "Event not found", 404
+
+    return render_template("event.html", event=event)
 
 @app.route("/aboutus")
 def about():
