@@ -4,6 +4,7 @@
 .search-section-wrapper{
     width: 100%;
     min-height: 500px;
+    position: relative;
 }
 .search-section-box{
     width: 1130px;
@@ -28,6 +29,7 @@
 .search-box-content-wrapper{
     height: 100%;
     flex: 0 0 auto; 
+    position: relative; /* allow filter/sort panels to sit on top without pushing layout */
 }
 .search-events-btn{
     width: 156px;
@@ -71,6 +73,86 @@
     position: relative;
     top: 5px;
     margin-right: 5px;
+}
+
+.filters-panel,
+.sort-panel {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 680px;
+    max-width: 90vw;
+    padding: 24px 32px;
+    border-radius: 12px;
+    background-color: #1f1f1f;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.55);
+    z-index: 30;
+}
+
+.filters-panel-inner,
+.sort-panel-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.filters-panel select,
+.sort-panel select {
+    background-color: #2a2a2a;
+    color: #fff;
+
+    /* Use a custom arrow so we can position it exactly */
+    appearance: none;
+    padding-right: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='2' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px 6px;
+}
+
+.filters-panel-title,
+.sort-panel-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.filters-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.apply-filters-btn {
+    width: 220px;
+    height: 48px;
+    font-size: 18px;
+    margin-top: 8px;
+    align-self: center;
+}
+
+.active-filters-summary {
+    margin-top: 12px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.clear-filters-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.d-none {
+    display: none !important;
 }
 
 @media screen and (max-width: 1400px) {

@@ -24,38 +24,118 @@ def getConnection():
     else:
         return conn
 
-def getAllEvents():
+def getAllEvents(event_type_id=None, venue_id=None, sort_by="date", sort_dir="asc", search=None):
     conn = getConnection()
 
     if conn is None:
         print("Unable to establish database connection.")
         return []
     
-    # Dictionary means results will be returned in form -> "event_name": "Music Festival"
-    # Instead of numeric indexes
-    cur = conn.cursor(dictionary=True) 
+    cur = conn.cursor(dictionary=True)
 
-    #COALESCE() uses first non null value 
+    # Build the query dynamically based on supplied filters.
     query = """
         SELECT 
             e.event_id,
             et.event_name,
             COALESCE(e.event_custom_description, et.event_description) AS event_description,
             e.event_date,
+            v.venue_name,
             v.venue_imgPath
         FROM Event e
         JOIN EventType et ON e.eventType_id = et.eventType_id
         JOIN Venue v ON e.venue_id = v.venue_id
-        ORDER BY e.event_date ASC;
     """
 
-    cur.execute(query)
+    where_clauses = []
+    params = []
+
+    if event_type_id:
+        where_clauses.append("e.eventType_id = %s")
+        params.append(event_type_id)
+
+    if venue_id:
+        where_clauses.append("e.venue_id = %s")
+        params.append(venue_id)
+
+    if search:
+        # Search in event type, description, and venue name.
+        search_term = f"%{search}%"
+        where_clauses.append(
+            "(et.event_name LIKE %s OR e.event_custom_description LIKE %s OR et.event_description LIKE %s OR v.venue_name LIKE %s)"
+        )
+        params.extend([search_term] * 4)
+
+    if where_clauses:
+        query += "\n        WHERE " + " AND ".join(where_clauses)
+
+    # Sorting options
+    sort_map = {
+        "date": "e.event_date",
+        "venue": "v.venue_name",
+        "event": "et.event_name",
+    }
+
+    order_column = sort_map.get(sort_by, "e.event_date")
+    sort_dir = sort_dir.lower()
+    if sort_dir not in ("asc", "desc"):
+        sort_dir = "asc"
+
+    query += f"\n        ORDER BY {order_column} {sort_dir.upper()};"
+
+    cur.execute(query, params)
     events = cur.fetchall()
 
     cur.close()
     conn.close()
 
     return events
+
+
+def getEventTypes():
+    conn = getConnection()
+
+    if conn is None:
+        print("Unable to establish database connection.")
+        return []
+
+    cur = conn.cursor(dictionary=True)
+    query = """
+        SELECT eventType_id, event_name
+        FROM EventType
+        ORDER BY event_name ASC;
+    """
+
+    cur.execute(query)
+    types = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return types
+
+
+def getVenues():
+    conn = getConnection()
+
+    if conn is None:
+        print("Unable to establish database connection.")
+        return []
+
+    cur = conn.cursor(dictionary=True)
+    query = """
+        SELECT venue_id, venue_name
+        FROM Venue
+        ORDER BY venue_name ASC;
+    """
+
+    cur.execute(query)
+    venues = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return venues
 
 def getEventById(event_id):
 

@@ -31,25 +31,100 @@
 
     <!-- SEARCH FILTERS SECTION -->
     <section class="search-section-wrapper d-flex flex-column align-items-center justify-content-center">
-        <div class="search-section-box d-flex flex-row align-items-center justify-content-between">
-            <div class="search-box-design-line"></div>
-            <div class="search-box-content-wrapper d-flex flex-column align-items-center justify-content-around">
-                <h2 class="search-box-content-title">Search. Filter. Sort.</h2>
-                <form action="#">
-                    <input type="text" placeholder="Find your vibe..." class="default-input">
-                    <input type="submit" value="Search" class="search-events-btn">
-                </form>
-                <div class="search-filter-btns-wrapper d-flex flex-row align-items-center" style="gap: 27px;">
-                    <button class="bce-btn search-filter-btns filter-icon">Filters</button>
-                    <button class="bce-btn search-filter-btns sortby-icon">Sort by</button>
+        <form id="eventsSearchForm" action="{{ url_for('events') }}" method="get">
+            <div class="search-section-box d-flex flex-row align-items-center justify-content-between">
+                <div class="search-box-design-line"></div>
+                <div class="search-box-content-wrapper d-flex flex-column align-items-center justify-content-around">
+                    <h2 class="search-box-content-title">Search. Filter. Sort.</h2>
+
+                    <div class="d-flex align-items-center" style="gap: 12px;">
+                        <input
+                            type="text"
+                            name="q"
+                            value="{{ search or '' }}"
+                            placeholder="Find your vibe..."
+                            class="default-input"
+                        >
+                        <input type="submit" value="Search" class="search-events-btn">
+                    </div>
+
+                    <div class="search-filter-btns-wrapper d-flex flex-row align-items-center" style="gap: 27px;">
+                        <button type="button" id="openFiltersBtn" class="bce-btn search-filter-btns filter-icon">Filters</button>
+                        <button type="button" id="openSortBtn" class="bce-btn search-filter-btns sortby-icon">Sort by</button>
+                    </div>
+                </div>
+                <div class="search-box-design-line"></div>
+            </div>
+
+            <!-- Filters Panel -->
+            <div id="filtersPanel" class="filters-panel d-none">
+                <div class="filters-panel-inner">
+                    <h3 class="filters-panel-title">Filter Events</h3>
+
+                    <label class="filters-label" for="eventTypeSelect">Event Type</label>
+                    <select id="eventTypeSelect" name="event_type" class="default-input">
+                        <option value="">All event types</option>
+                        {% for et in event_types %}
+                            <option value="{{ et.eventType_id }}" {% if selected_event_type == et.eventType_id %}selected{% endif %}>
+                                {{ et.event_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                    <label class="filters-label" for="venueSelect">Venue</label>
+                    <select id="venueSelect" name="venue_id" class="default-input">
+                        <option value="">All venues</option>
+                        {% for v in venues %}
+                            <option value="{{ v.venue_id }}" {% if selected_venue == v.venue_id %}selected{% endif %}>
+                                {{ v.venue_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit" class="bce-btn apply-filters-btn">Apply filters</button>
                 </div>
             </div>
-            <div class="search-box-design-line"></div>
-        </div>
+
+            <!-- Sort Panel -->
+            <div id="sortPanel" class="sort-panel d-none">
+                <div class="sort-panel-inner">
+                    <h3 class="sort-panel-title">Sort Events</h3>
+
+                    <select name="sort_option" class="default-input" id="sortOptionSelect">
+                        <option value="date_asc" {% if selected_sort_option == 'date_asc' %}selected{% endif %}>Date (closest first)</option>
+                        <option value="date_desc" {% if selected_sort_option == 'date_desc' %}selected{% endif %}>Date (furthest first)</option>
+                        <option value="venue_asc" {% if selected_sort_option == 'venue_asc' %}selected{% endif %}>Venue (A–Z)</option>
+                        <option value="venue_desc" {% if selected_sort_option == 'venue_desc' %}selected{% endif %}>Venue (Z–A)</option>
+                    </select>
+
+                    <button type="submit" class="bce-btn apply-filters-btn">Apply sort</button>
+                </div>
+            </div>
+        </form>
     </section>
     <!-- SEARCH RESULTS SECTION -->
     <main class="result-display-wrapper d-flex flex-column align-items-center">
-        <h2 class="number-of-results-title">0 EVENT FOUND</h2>
+        <h2 class="number-of-results-title">
+            {{ events|length }}
+            {% if events|length == 1 %} 
+            EVENT
+            {% else %}
+            EVENTS
+            {% endif %}
+            FOUND
+        </h2>
+
+        {% set isFiltered = (search or selected_event_type or selected_venue or (selected_sort_option != 'date_asc')) %}
+        {% if isFiltered %}
+        <div class="active-filters-summary">
+            <strong>Active:</strong>
+            {% if search %} Search "{{ search }}"{% endif %}
+            {% if selected_event_type_name %} | Event type: {{ selected_event_type_name }}{% endif %}
+            {% if selected_venue_name %} | Venue: {{ selected_venue_name }}{% endif %}
+            {% if selected_sort_option and selected_sort_option != 'date_asc' %} | Sorted by: {{ selected_sort_label }}{% endif %}
+            <a href="{{ url_for('events') }}" class="clear-filters-link">Clear</a>
+        </div>
+        {% endif %}
 
         <!-- Scroll Container -->
         <div class="events-list d-flex flex-column align-items-center" id="eventsContainer">
