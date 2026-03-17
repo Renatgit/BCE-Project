@@ -1,10 +1,39 @@
 import mysql.connector
 from mysql.connector import errorcode
+import datetime
 
 hostname = "localhost"
 username = "renat2bershadskyi"
 passwd = "Ret_tein3011"
 db = "renat2bershadskyi_prj"
+
+
+def format_datetime_uk(dt):
+    #Format a datetime as DD/MM/YYYY HH:MM (UK format)
+    if dt is None:
+        return ""
+
+    if isinstance(dt, str):
+        try:
+            dt = datetime.datetime.fromisoformat(dt)
+        except ValueError:
+            for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M", "%Y-%m-%d"):
+                try:
+                    # datetime.datetime.strptime(date, format)
+                    # Converts a string(passed from DB) into 
+                    # a datetime object by matching it against a format pattern
+                    dt = datetime.datetime.strptime(dt, fmt)
+                    break
+                except ValueError:
+                    continue
+            else:
+                return dt
+
+    # If date only (no time), coerce to datetime for formatting
+    if isinstance(dt, datetime.date) and not isinstance(dt, datetime.datetime):
+        dt = datetime.datetime(dt.year, dt.month, dt.day)
+
+    return dt.strftime("%d/%m/%Y %H:%M")
 
 def getConnection():
     try:
@@ -37,7 +66,8 @@ def getAllEvents(event_type_id=None, venue_id=None, sort_by="date", sort_dir="as
     query = """
         SELECT 
             e.event_id,
-            et.event_name,
+            e.event_name,
+            et.eventType_name AS event_type_name,
             COALESCE(e.event_custom_description, et.event_description) AS event_description,
             e.event_date,
             v.venue_name,
@@ -62,9 +92,9 @@ def getAllEvents(event_type_id=None, venue_id=None, sort_by="date", sort_dir="as
         # Search in event type, description, and venue name.
         search_term = f"%{search}%"
         where_clauses.append(
-            "(et.event_name LIKE %s OR e.event_custom_description LIKE %s OR et.event_description LIKE %s OR v.venue_name LIKE %s)"
+            "(e.event_name LIKE %s OR et.eventType_name LIKE %s OR e.event_custom_description LIKE %s OR et.event_description LIKE %s OR v.venue_name LIKE %s)"
         )
-        params.extend([search_term] * 4)
+        params.extend([search_term] * 5)
 
     if where_clauses:
         query += "\n        WHERE " + " AND ".join(where_clauses)
@@ -73,7 +103,7 @@ def getAllEvents(event_type_id=None, venue_id=None, sort_by="date", sort_dir="as
     sort_map = {
         "date": "e.event_date",
         "venue": "v.venue_name",
-        "event": "et.event_name",
+        "event": "e.event_name",
     }
 
     order_column = sort_map.get(sort_by, "e.event_date")
@@ -85,6 +115,11 @@ def getAllEvents(event_type_id=None, venue_id=None, sort_by="date", sort_dir="as
 
     cur.execute(query, params)
     events = cur.fetchall()
+
+    # Format dates for display (UK style, without seconds)
+    for e in events:
+        if "event_date" in e:
+            e["event_date"] = format_datetime_uk(e["event_date"])
 
     cur.close()
     conn.close()
@@ -101,9 +136,9 @@ def getEventTypes():
 
     cur = conn.cursor(dictionary=True)
     query = """
-        SELECT eventType_id, event_name
+        SELECT eventType_id, eventType_name AS event_name
         FROM EventType
-        ORDER BY event_name ASC;
+        ORDER BY eventType_name ASC;
     """
 
     cur.execute(query)
@@ -148,7 +183,8 @@ def getEventById(event_id):
     query = """
         SELECT
             e.event_id,
-            et.event_name,
+            e.event_name,
+            et.eventType_name AS event_type_name,
             COALESCE(e.event_custom_description, et.event_description) AS description,
             v.venue_name,
             v.venue_imgPath,
@@ -163,6 +199,9 @@ def getEventById(event_id):
 
     cur.execute(query, (event_id,))
     event = cur.fetchone()
+
+    if event and "event_date" in event:
+        event["event_date"] = format_datetime_uk(event["event_date"])
 
     cur.close()
     conn.close()
