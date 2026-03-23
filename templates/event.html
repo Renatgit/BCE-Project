@@ -13,6 +13,12 @@
         <div class="hero-event-img" style="background-image: url('{{ url_for('static', filename=event.venue_imgPath) }}');"></div>
         <h1 class="hero-event-title">{{ event.event_name }}</h1>
         <p class="hero-event-location">{{ event.venue_location }}</p>
+        <p class="hero-event-location" 
+        style="color: #fff; 
+        margin-top: 40px; 
+        font-size: 18px;
+        font-weight: 600;">
+        {{ event.event_type_name }} • {{ event.venue_name }}</p>
     </section>
     <main class="event-description-wrapper d-flex flex-column align-items-center" style="gap: 35px;">
         <h2 class="event-description-section-title">Description</h2>

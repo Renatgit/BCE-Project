@@ -139,7 +139,8 @@
                     <div class="event-card-line"></div>
                     <div class="event-card-text-content d-flex flex-column align-items-center">
                         <p class="event-card-title">{{event.event_name}}</p>
-                        <p class="event-card-desciption">{{event.event_description}}</p>
+                        <p class="event-card-desciption" style="opacity: 0.9;">{{event.event_description[:75]}}...</p>
+                        <p class="event-card-desciption" style="margin-top: 40px; opacity: 0.8;">{{ event.event_type_name }} • {{ event.venue_name }}</p>
                     </div>
                     <div class="event-card-line"></div>
                     <div class="event-card-action-btns d-flex flex-column align-items-center">

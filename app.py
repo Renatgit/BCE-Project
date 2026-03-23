@@ -112,6 +112,11 @@ def signup():
 def account():
     return render_template("account.html")
 
+@app.route("/credits")
+def credits():
+    venues = dbfunc.getVenues()
+    return render_template("credits.html", venues=venues)
+
 if __name__ == '__main__':
     for i in range(10000, 18000):
         try:

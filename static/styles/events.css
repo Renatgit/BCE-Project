@@ -154,7 +154,6 @@
 .d-none {
     display: none !important;
 }
-
 @media screen and (max-width: 1400px) {
     .search-section-box{
         width: 900px;

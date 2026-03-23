@@ -159,7 +159,7 @@ def getVenues():
 
     cur = conn.cursor(dictionary=True)
     query = """
-        SELECT venue_id, venue_name
+        SELECT venue_id, venue_name, venue_img_credit_name AS credit_name, venue_img_credit_link AS credit_link
         FROM Venue
         ORDER BY venue_name ASC;
     """

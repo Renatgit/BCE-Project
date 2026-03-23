@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}BCE - Credits{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/credits.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="credits-wrapper">
+    <div class="credits-container">
+        <h1 class="credits-title">Credits</h1>
+        <section class="credits-section">
+            <h2 class="section-title">Venue Photo Credits</h2>
+            <div class="credits-separation-line"></div>
+            <div class="credits-grid">
+            {% for venue in venues %}
+                {% if venue.credit_name %}
+                    <div class="credit-item">
+                        <h3 class="venue-name">{{venue.venue_name}}</h3>
+                        <p class="credit-text">Photo by <span class="photographer">{{venue.credit_name}}</span> from:</p>
+                        <p class="credit-description">{{venue.credit_link}}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+                
+    </div>
+</div>
+
+{% endblock %}</content>
+<parameter name="filePath">c:\BCE-Project\BCE-Project\templates\credits.html

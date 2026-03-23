@@ -1,0 +1,164 @@
+.credits-wrapper {
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.credits-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.credits-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: #1F1F1F;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.credits-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 500;
+    color: #1F1F1F;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.credits-separation-line{
+    width: 65vw;
+    height: 2px;
+    background-color: #1F1F1F;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    margin-bottom: 20px;
+}
+
+.credits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.credit-item {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #1F1F1F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.venue-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1F1F1F;
+    margin-bottom: 10px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.credit-text {
+    font-size: 16px;
+    color: #6B6B6B;
+    margin-bottom: 8px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.photographer {
+    font-weight: 600;
+    color: #1F1F1F;
+}
+
+.credit-description {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.additional-credits {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #1F1F1F;
+}
+
+.additional-credits p {
+    font-size: 18px;
+    color: #1F1F1F;
+    margin-bottom: 15px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.additional-credits p:last-child {
+    margin-bottom: 0;
+}
+
+.additional-credits strong {
+    color: #1F1F1F;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .credits-wrapper {
+        padding: 20px 10px;
+    }
+
+    .credits-container {
+        padding: 0 10px;
+    }
+
+    .credits-title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .credits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .credit-item {
+        padding: 20px;
+    }
+
+    .venue-name {
+        font-size: 20px;
+    }
+
+    .additional-credits {
+        padding: 20px;
+    }
+
+    .additional-credits p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .credits-title {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .credit-item {
+        padding: 15px;
+    }
+
+    .venue-name {
+        font-size: 18px;
+    }
+}
