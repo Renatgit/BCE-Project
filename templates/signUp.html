@@ -14,26 +14,38 @@
             <div class="design-line"></div>
             <div class="reg-content-signup d-flex flex-column align-items-center justify-content-start" style="gap: 30px;">
                 <h2 class="reg-title">Sign Up</h2>
-                <form action="#" class="reg-form d-flex flex-column align-items-center" style="gap: 10px;">
+                <form action="/signup" class="reg-form d-flex flex-column align-items-center" style="gap: 10px;" method="POST">
                     <div class="reg-field d-flex">
-                        <label for="" class="input-label">Email</label>
-                        <input type="text" placeholder="Email" class="default-input">
+                        <div class="input-row d-flex">
+                            <label for="" class="input-label">Email</label>
+                            <input type="text" name="email" placeholder="Email" class="default-input" id="email">
+                        </div>
+                        <p class="error-text" id="email-error"></p>
                     </div>
                     <div class="reg-field d-flex">
-                        <label for="" class="input-label">Username</label>
-                        <input type="text" placeholder="Username" class="default-input">
+                        <div class="input-row d-flex">
+                            <label for="" class="input-label">Username</label>
+                            <input type="text" name="username" placeholder="Username" class="default-input" id="username">
+                        </div>
+                        <p class="error-text" id="username-error"></p>
                     </div>
                     <div class="reg-field d-flex">
-                        <label for="" class="input-label">Password</label>
-                        <input type="text" placeholder="Password" class="default-input">
+                        <div class="input-row d-flex">
+                            <label for="" class="input-label">Password</label>
+                            <input type="password" name="password" placeholder="Password" class="default-input" id="password">
+                        </div>
+                        <p class="error-text" id="password-error"></p>
                     </div>
                     <div class="d-flex flex-row align-items-center align-self-end">
-                        <input type="checkbox" class="default-checkbox">
+                        <input type="checkbox" class="default-checkbox" id="showPassword">
                         <label for="" class="checkbox-label">Show Password</label>
                     </div>
                     <div class="reg-field d-flex">
-                        <label for="" class="input-label">Confirm Password</label>
-                        <input type="text" placeholder="Confirm Password" class="default-input">
+                        <div class="input-row d-flex">
+                            <label for="" class="input-label">Confirm Password</label>
+                            <input type="password" name="confirm_password" placeholder="Confirm Password" class="default-input" id="confirm_password">
+                        </div>
+                        <p class="error-text" id="confirm-error"></p>
                     </div>
                     <input type="submit" value="Sign Up" class="submit-btn" style="margin-top: 40px;">
                     <p class="helper-text">Already have an account? Login <a href="/login" style="text-decoration: underline; color: #fff;"> here</a> now!</p>
@@ -47,4 +59,6 @@
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/form-validation.js') }}"></script>
+<script src="{{ url_for('static', filename='js/show-password.js') }}"></script>
 {% endblock %}

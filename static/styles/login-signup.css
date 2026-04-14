@@ -1,6 +1,6 @@
 .reg-form-box, .reg-form-box-signup{
     width: 1274px;
-    height: 597px;
+    height: 627px;
     background-color: #1f1f1f;
     clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
     margin-bottom: 50px;
@@ -56,8 +56,20 @@
     
 }
 .reg-field{
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+}
+.input-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.error-text {
+  color: #ff4d4d;
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 14px; 
+  margin-left: 220px;
 }
 @media screen and (max-width: 1400px) {
     .reg-form-box, .reg-form-box-signup{

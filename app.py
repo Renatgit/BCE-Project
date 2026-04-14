@@ -1,7 +1,15 @@
-from flask import Flask, render_template, request #request allows Flask to read query parameters from the URL
+from flask import Flask, redirect, render_template, session, url_for, jsonify, request  #request allows Flask to read query parameters from the URL
+from werkzeug.security import check_password_hash
 import dbfunc
+import secrets
 
 app = Flask(__name__)
+#app.secret_key = secrets.token_hex(32)
+app.secret_key = '^xHM$[5A1!vxS><9GTuzif|S;,&$=m0S'
+
+@app.route("/debug")
+def debug():
+    return str(session)
 
 @app.route("/")
 @app.route("/index")
@@ -100,17 +108,110 @@ def event(event_id):
 def about():
     return render_template("aboutUs.html")
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        login_input = request.form.get("login")
+        password = request.form.get("password")
+
+        user = dbfunc.getUserByLogin(login_input)
+
+        if user and check_password_hash(user["password_hash"], password):
+            session["user_id"] = user["user_id"]
+            session["user_name"] = user["user_name"]
+
+            return redirect(url_for("home"))
+        else:
+            return render_template("login.html", error="Invalid credentials")
+
     return render_template("login.html")
 
-@app.route("/signup")
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
+    if request.method == "POST":
+        email = request.form.get("email")
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+
+        # Password match
+        if password != confirm_password:
+            return render_template("signUp.html", error="Passwords do not match")
+
+        # Email exists check
+        if dbfunc.emailExists(email):
+            return render_template("signUp.html", error="Email already exists")
+
+        # Username exists check
+        if dbfunc.usernameExists(username):
+            return render_template("signUp.html", error="Username already taken")
+
+        # Create user
+        dbfunc.createUser(username, email, password)
+
+        return redirect(url_for("login"))
+
     return render_template("signUp.html")
 
-@app.route("/account")
+@app.route("/check_user")
+def check_user():
+    email = request.args.get("email")
+    username = request.args.get("username")
+
+    response = {}
+
+    if email:
+        response["emailExists"] = dbfunc.emailExists(email)
+
+    if username:
+        response["usernameExists"] = dbfunc.usernameExists(username)
+
+    return jsonify(response)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("home"))  # or index
+
+@app.route("/account", methods=["GET", "POST"])
 def account():
-    return render_template("account.html")
+    if "user_id" not in session:
+        return redirect(url_for("login"))
+
+    user_id = session["user_id"]
+
+    if request.method == "POST":
+        username = request.form.get("username")
+        email = request.form.get("email")
+        phone = request.form.get("phone")
+        dob = request.form.get("dob")
+
+        dbfunc.updateUserProfile(user_id, username, email, phone, dob)
+
+    user = dbfunc.getUserById(user_id)
+
+    return render_template("account.html", user=user)
+
+@app.route("/update_profile", methods=["POST"])
+def update_profile():
+    if "user_id" not in session:
+        return jsonify({"success": False})
+
+    user_id = session["user_id"]
+
+    field = request.json.get("field")
+    value = request.json.get("value")
+
+    allowed_fields = ["user_name", "user_email", "user_phoneNo", "user_dob"]
+
+    if field not in allowed_fields:
+        return jsonify({"success": False})
+    
+    dbfunc.updateSingleField(user_id, field, value)
+
+    if field == "user_name":
+        session["user_name"] = value
+    return jsonify({"success": True})
 
 @app.route("/credits")
 def credits():

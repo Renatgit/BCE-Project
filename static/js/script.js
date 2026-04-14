@@ -61,3 +61,54 @@ if (document.readyState === "loading") {
 }
 
 window.addEventListener("resize", matchBlockHeights);
+
+async function editField(field, displayId) {
+    let currentValue = document.getElementById(displayId).textContent;
+
+    if (currentValue === "Not set") currentValue = "";
+
+    let newValue;
+
+    if (field === "user_dob") {
+        newValue = prompt("Enter date of birth (YYYY-MM-DD):", currentValue);
+    } else {
+        newValue = prompt("Enter new value:", currentValue);
+    }
+
+    if (!newValue || newValue === currentValue) return;
+
+    // DOB validation
+    if (field === "user_dob") {
+        const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+        if (!dateRegex.test(newValue)) {
+            alert("Invalid DOB format. Use YYYY-MM-DD");
+            return;
+        }
+
+        const date = new Date(newValue);
+        if (date > new Date()) {
+            alert("DOB cannot be in the future");
+            return;
+        }
+    }
+
+    const res = await fetch("/update_profile", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            field: field,
+            value: newValue
+        })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+        document.getElementById(displayId).textContent = newValue;
+    } else {
+        alert("Update failed");
+    }
+}

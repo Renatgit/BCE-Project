@@ -1,12 +1,104 @@
 import mysql.connector
 from mysql.connector import errorcode
 import datetime
+from werkzeug.security import generate_password_hash
 
 hostname = "localhost"
 username = "renat2bershadskyi"
 passwd = "Ret_tein3011"
 db = "renat2bershadskyi_prj"
 
+def emailExists(email):
+    conn = getConnection()
+    cur = conn.cursor()
+
+    query  = "SELECT user_id FROM User WHERE user_email = %s"
+    cur.execute(query, (email,))
+    result = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    return result is not None
+
+def usernameExists(username):
+    conn = getConnection()
+    cur = conn.cursor()
+
+    query = "SELECT user_id FROM User WHERE user_name = %s"
+    cur.execute(query, (username,))
+    result = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    return result is not None
+
+def createUser(username, email, password, phone=None, dob=None, is_student=0):
+    conn = getConnection()
+    cur = conn.cursor()
+
+    hashed_password = generate_password_hash(password)
+
+    query = """
+        INSERT INTO User 
+        (user_name, user_email, password_hash, user_phoneNo, user_dob, is_student, is_deleted)
+        VALUES (%s, %s, %s, %s, %s, %s, 0)
+    """
+
+    cur.execute(query, (
+        username,
+        email,
+        hashed_password,
+        phone,
+        dob,
+        is_student
+    ))
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
+def getUserByLogin(login):
+    conn = getConnection()
+    cur = conn.cursor(dictionary=True)
+
+    query = """
+        SELECT * FROM User 
+        WHERE user_email = %s OR user_name = %s
+    """
+
+    cur.execute(query, (login, login))
+    user = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    return user
+
+def getUserById(user_id):
+    conn = getConnection()
+    cur = conn.cursor(dictionary=True)
+
+    query = "SELECT * FROM User WHERE user_id = %s"
+    cur.execute(query, (user_id,))
+    user = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    return user
+
+def updateSingleField(user_id, field, value):
+    conn = getConnection()
+    cur = conn.cursor()
+
+    query = f"UPDATE User SET {field} = %s WHERE user_id = %s"
+    cur.execute(query, (value, user_id))
+
+    conn.commit()
+    cur.close()
+    conn.close()
 
 def format_datetime_uk(dt):
     #Format a datetime as DD/MM/YYYY HH:MM (UK format)

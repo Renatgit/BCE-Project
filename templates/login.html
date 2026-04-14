@@ -14,17 +14,21 @@
             <div class="design-line"></div>
             <div class="reg-content d-flex flex-column align-items-center justify-content-start" style="gap: 100px;">
                 <h2 class="reg-title">Login</h2>
-                <form action="#" class="reg-form d-flex flex-column align-items-center" style="gap: 20px;">
+                <form action="/login" method="POST" class="reg-form d-flex flex-column align-items-center" style="gap: 20px;">
                     <div class="reg-field d-flex">
-                        <label for="" class="input-label">Username</label>
-                        <input type="text" placeholder="Username or Email" class="default-input">
+                        <div class="input-row d-flex">
+                            <label for="" class="input-label">Username</label>
+                            <input type="text" name="login" placeholder="Username or Email" class="default-input">
+                        </div>
                     </div>
                     <div class="reg-field d-flex">
-                        <label for="" class="input-label">Password</label>
-                        <input type="text" placeholder="Password" class="default-input">
+                        <div class="input-row d-flex">
+                            <label for="" class="input-label">Password</label>
+                            <input type="password" name="password" placeholder="Password" class="default-input" id="password">
+                        </div>
                     </div>
                     <div class="d-flex flex-row align-items-center align-self-end">
-                        <input type="checkbox" class="default-checkbox">
+                        <input type="checkbox" class="default-checkbox" id="showPassword">
                         <label for="" class="checkbox-label">Show Password</label>
                     </div>
                     <input type="submit" value="Login" class="submit-btn" style="margin-top: 40px;">
@@ -39,4 +43,5 @@
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/show-password.js') }}"></script>
 {% endblock %}
