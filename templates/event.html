@@ -30,7 +30,7 @@
             </div>
             <div class="action-buttons d-flex flex-column align-items-center" style="gap: 10px;">
                 <p class="price-display">Price: <span class="price-highlights">£{{ event.event_price }}</span></p>
-                <button class="book-now-btn">BOOK NOW</button>
+                <button class="book-now-btn" onclick="window.location.href='/booking/{{event.event_id}}';">BOOK NOW</button>
                 <button class="contact-us-btn">CONTACT US</button>
             </div>
             <div class="design-line"></div>

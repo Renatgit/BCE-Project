@@ -251,6 +251,23 @@
     gap: 40px;
 }
 
+.no-bookings-message {
+    font-weight: 400;
+    font-size: 18px;
+    color: #1F1F1F;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.booking-details-display {
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.booking-details-display p {
+    margin: 0;
+}
+
 /*---"NEWSLETTER SUB" part content---*/
 .loyalty-section-wrapper{
     width: 100%;

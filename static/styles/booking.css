@@ -1,0 +1,374 @@
+/* Booking Page Styles */
+
+.booking-section-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking-form-box {
+    width: 1274px;
+    background-color: #1f1f1f;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    margin-bottom: 50px;
+    padding: 0 50px;
+}
+
+.design-line {
+    height: 550px;
+    width: 1px;
+    transform: rotate(4deg);
+    background-color: #fff;
+}
+
+.booking-content {
+    height: 100%;
+    justify-content: flex-start;
+    gap: 30px !important;
+}
+
+.booking-title {
+    font-weight: 800;
+    font-size: 40px;
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+/* Event Details Section */
+.event-details-box {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.event-name {
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+}
+
+.detail-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.detail-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    min-width: 130px;
+}
+
+.detail-value {
+    font-weight: 400;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Price Section with Discount */
+.price-section {
+    flex-wrap: wrap;
+}
+
+.original-price {
+    font-weight: 400;
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.new-price {
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+}
+
+.discount-badge {
+    background-color: #2d5016;
+    color: #90ee90;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* Account Details Section */
+.account-details-box {
+    width: 100%;
+    padding: 15px;
+    border-left: 2px solid #fff;
+    padding-left: 20px;
+}
+
+.section-subtitle {
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+}
+
+.account-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.account-row .detail-label {
+    min-width: 100px;
+    font-size: 15px;
+}
+
+.account-row .detail-value {
+    font-size: 15px;
+}
+
+/* Booking Form */
+.booking-form {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.booking-field {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-label {
+    width: 130px;
+    text-align: end;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    margin-right: 17px;
+}
+
+.ticket-select {
+    width: 479px;
+    height: 46px;
+    background-color: #fff;
+    color: #1f1f1f;
+    font-weight: 500;
+    font-size: 20px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='none' stroke='%23000000' stroke-width='2' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px 6px;
+}
+
+.ticket-select option {
+    background-color: #fff;
+    color: #1f1f1f;
+}
+
+/* Total Section */
+.total-section {
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.total-label {
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+}
+
+.total-value {
+    font-weight: 700;
+    font-size: 28px;
+    color: #fff;
+}
+
+/* Total Breakdown Section */
+.total-breakdown {
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 3px;
+}
+
+.total-row {
+    width: 100%;
+}
+
+.breakdown-label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.original-total {
+    font-weight: 400;
+    font-size: 16px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.discount-amount {
+    font-weight: 600;
+    font-size: 16px;
+    color: #90ee90;
+}
+
+.total-divider {
+    width: 90%;
+    height: 1px;
+    background-color: #444;
+    margin: 8px 0;
+}
+
+.final-total {
+    margin-top: 8px;
+}
+
+.final-total-value {
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Buttons */
+.submit-btn {
+    width: 200px;
+    height: 59px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1F1F1F;
+    border: none;
+    background-color: #fff;
+    border-radius: 3px;
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%) !important;
+    cursor: pointer;
+    transition: 1s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #f0f0f0;
+    transition: 1s;
+}
+
+.submit-btn:active {
+    background-color: #e0e0e0;
+    transition: 0.1s;
+}
+
+.cancel-link {
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: underline;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.cancel-link:hover {
+    color: #ccc;
+    transition: 0.3s;
+}
+
+/* Error Text */
+.error-text {
+    color: #ff4d4d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1400px) {
+    .booking-form-box {
+        width: 1070px;
+    }
+    .design-line {
+        transform: rotate(3.5deg);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .booking-form-box {
+        width: 950px;
+    }
+    .design-line {
+        transform: rotate(5.8deg);
+        height: 500px;
+    }
+    .booking-title {
+        font-size: 32px;
+    }
+    .input-label {
+        font-size: 18px;
+    }
+    .ticket-select {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    .booking-form-box {
+        width: 670px;
+        clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    }
+    .design-line {
+        transform: rotate(3.5deg);
+        height: 550px;
+    }
+    .booking-content {
+        gap: 40px !important;
+    }
+    .booking-title {
+        font-size: 32px;
+        margin-top: 50px;
+    }
+    .input-label {
+        font-size: 18px;
+    }
+    .ticket-select {
+        width: 350px;
+    }
+    .input-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .input-label {
+        text-align: start;
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+    .price-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .account-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+    .submit-btn {
+        width: 170px;
+        height: 52px;
+        font-size: 18px;
+    }
+    .total-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+

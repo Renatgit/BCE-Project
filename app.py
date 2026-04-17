@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, session, url_for, jsonify, r
 from werkzeug.security import check_password_hash
 import dbfunc
 import secrets
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 #app.secret_key = secrets.token_hex(32)
@@ -189,8 +190,22 @@ def account():
         dbfunc.updateUserProfile(user_id, username, email, phone, dob)
 
     user = dbfunc.getUserById(user_id)
+    bookings = dbfunc.getUserBookings(user_id)
 
-    return render_template("account.html", user=user)
+    return render_template("account.html", user=user, bookings=bookings)
+
+@app.route("/cancel_booking/<int:enrol_id>", methods=["POST"])
+def cancel_booking(enrol_id):
+    if "user_id" not in session:
+        return redirect(url_for("login"))
+    
+    success = dbfunc.cancelBooking(enrol_id)
+    
+    if not success:
+        # If cancellation failed, redirect back to account with an error message
+        return redirect(url_for("account"))
+    
+    return redirect(url_for("account"))
 
 @app.route("/update_profile", methods=["POST"])
 def update_profile():
@@ -212,6 +227,97 @@ def update_profile():
     if field == "user_name":
         session["user_name"] = value
     return jsonify({"success": True})
+
+@app.route("/booking/<int:event_id>", methods=["GET", "POST"])
+def booking(event_id):
+    # Check if user is logged in
+    if "user_id" not in session:
+        return redirect(url_for("login"))
+    
+    user_id = session["user_id"]
+    user = dbfunc.getUserById(user_id)
+    event = dbfunc.getEventById(event_id)
+    
+    if event is None:
+        return "Event not found", 404
+    
+    event_date = event["event_date"]
+    if isinstance(event_date, str):
+        event_date = datetime.strptime(event_date, '%d/%m/%Y %H:%M')
+
+    days_until_event = (event_date - datetime.now()).days
+
+    discount = dbfunc.getApplicableDiscount(days_until_event)
+    discount_percent = discount["discount_percentage"] if discount else 0
+
+    original_price = float(event["event_price"])
+    final_price = original_price * (1 - discount_percent / 100)
+
+    if request.method == "POST":
+        try:
+            ticket_quantity = int(request.form.get("ticket_quantity", 1))
+            
+            # Validate ticket quantity
+            if ticket_quantity < 1 or ticket_quantity > 6:
+                return render_template("booking.html", event=event, user=user, error="Please select between 1 and 6 tickets", original_price=original_price, final_price=final_price, discount_percent=discount_percent)
+            
+            # Check if the booking is not more than 2 month in advance
+            event_date = event["event_date"]
+            if isinstance(event_date, str):
+                event_date = datetime.strptime(event_date, '%d/%m/%Y %H:%M')
+
+            if event_date > datetime.now() + timedelta(days=60):
+                return render_template (
+                    "booking.html",
+                    event=event,
+                    user=user,
+                    error="You can only book events within 2 months",
+                    original_price=original_price,
+                    final_price=final_price,
+                    discount_percent=discount_percent
+                )
+            # Check if the there are enough tickets
+            booked = dbfunc.getBookedTickets(event_id)
+            capacity = event["event_capacity"]
+            if booked + ticket_quantity > capacity:
+                return render_template(
+                    "booking.html",
+                    event=event,
+                    user=user,
+                    error="Not enough tickets available",
+                    original_price=original_price,
+                    final_price=final_price,
+                    discount_percent=discount_percent
+                )
+            
+            # Check if user has already booked this event
+            if dbfunc.hasUserBookedEvent(user_id, event_id):
+                return render_template(
+                    "booking.html",
+                    event=event,
+                    user=user,
+                    error="You have already booked this event",
+                    original_price=original_price,
+                    final_price=final_price,
+                    discount_percent=discount_percent
+                )
+            
+            total_price = final_price * ticket_quantity
+
+            # Create the booking
+            dbfunc.createBooking(user_id, event_id, ticket_quantity, total_price)
+            return redirect(url_for("account"))
+        except ValueError:
+            return render_template("booking.html", event=event, user=user, error="Invalid ticket quantity", original_price=original_price, final_price=final_price, discount_percent=discount_percent)
+    
+    return render_template(
+        "booking.html",
+        event=event,
+        user=user,
+        original_price=original_price,
+        final_price=final_price,
+        discount_percent=discount_percent
+    )
 
 @app.route("/credits")
 def credits():

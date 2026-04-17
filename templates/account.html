@@ -96,49 +96,41 @@
 
         <!-- SEARCH RESULTS SECTION -->
         <main class="result-display-wrapper d-flex flex-column align-items-center">
-            <h2 class="number-of-results-title">0 EVENT FOUND</h2>
+            <h2 class="number-of-results-title">{{ bookings|length }} EVENT{% if bookings|length != 1 %}S{% endif %} BOOKED</h2>
 
             <!-- Scroll Container -->
             <div class="events-list d-flex flex-column align-items-center" id="eventsContainer">
+                {% if bookings|length == 0 %}
+                <p class="no-bookings-message">You haven't booked any events yet. <a href="{{ url_for('events') }}" style="color: #000; text-decoration: underline;">Book an event now!</a></p>
+                {% else %}
+                {% for booking in bookings %}
                 <!-- Event Card -->
                 <div class="event-card d-flex flex-column align-items-center">
                     <div class="event-card-wrapper d-flex flex-row align-items-center">
-                        <div class="event-img-wrapper" style="background-image: url('{{ url_for('static', filename='img/event-cards/card-img-1.png') }}');"></div>
+                        <div class="event-img-wrapper" style="background-image: url('{{ url_for('static', filename=booking.venue_imgPath) }}');"></div>
                         <div class="event-card-line"></div>
                         <div class="event-card-text-content d-flex flex-column align-items-center">
-                            <p class="event-card-title">Result Title</p>
-                            <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
+                            <p class="event-card-title">{{ booking.event_name }}</p>
+                            <p class="event-card-desciption">{{ booking.eventType_name }} • {{ booking.venue_name }}</p>
+                            <div class="booking-details-display" style="margin-top: 15px; text-align: center;">
+                                <p style="color: #1f1f1f; font-weight: 600; margin: 0;">Tickets: <span style="color: #1f1f1f">{{ booking.ticket_quantity }}</span></p>
+                                <p style="color: #1f1f1f; font-weight: 600; margin: 5px 0 0 0;">Total: <span style="color: #1f1f1f">£{{ booking.total_price|round(2) }}</span></p>
+                            </div>
                         </div>
                         <div class="event-card-line"></div>
                         <div class="event-card-action-btns d-flex flex-column align-items-center">
-                            <button class="events-more-details-btn" onclick="window.location.href='/event';">More Details</button>
-                            <button class="events-book-now-btn">BOOK NOW</button>
-                            <p class="event-date">21st Dec - 18:00</p>
+                            <button class="events-more-details-btn" onclick="window.location.href='/event/{{ booking.event_id }}';">More Details</button>
+                            <form method="POST" action="{{ url_for('cancel_booking', enrol_id=booking.enrol_id) }}" style="width: 100%;">
+                                <button type="submit" class="events-cancel-btn" onclick="return confirm('Are you sure you want to cancel this booking?');">CANCEL</button>
+                            </form>
+                            <p class="event-date">{{ booking.event_date }}</p>
                         </div>
                     </div>
                     <!-- Card Separator -->
                     <div class="event-card-separator"></div>
                 </div>
-
-                <!-- Event Card -->
-                <div class="event-card d-flex flex-column align-items-center">
-                    <div class="event-card-wrapper d-flex flex-row align-items-center">
-                        <div class="event-img-wrapper" style="background-image: url('{{ url_for('static', filename='img/event-cards/card-img-2.png') }}');"></div>
-                        <div class="event-card-line"></div>
-                        <div class="event-card-text-content d-flex flex-column align-items-center">
-                            <p class="event-card-title">Result Title</p>
-                            <p class="event-card-desciption">Result Description Result Description Result Description Result Description Result Description Result Description Result Description</p>
-                        </div>
-                        <div class="event-card-line"></div>
-                        <div class="event-card-action-btns d-flex flex-column align-items-center">
-                            <button class="events-more-details-btn">More Details</button>
-                            <button class="events-book-now-btn">BOOK NOW</button>
-                            <p class="event-date">21st Dec - 18:00</p>
-                        </div>
-                    </div>
-                    <!-- Card Separator -->
-                    <div class="event-card-separator"></div>
-                </div>
+                {% endfor %}
+                {% endif %}
             </div>
         </main>
     </div>

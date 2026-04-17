@@ -100,32 +100,127 @@ def updateSingleField(user_id, field, value):
     cur.close()
     conn.close()
 
-def format_datetime_uk(dt):
-    #Format a datetime as DD/MM/YYYY HH:MM (UK format)
-    if dt is None:
-        return ""
+def hasUserBookedEvent(user_id, event_id):
+    conn = getConnection()
+    cur = conn.cursor()
 
-    if isinstance(dt, str):
-        try:
-            dt = datetime.datetime.fromisoformat(dt)
-        except ValueError:
-            for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M", "%Y-%m-%d"):
-                try:
-                    # datetime.datetime.strptime(date, format)
-                    # Converts a string(passed from DB) into 
-                    # a datetime object by matching it against a format pattern
-                    dt = datetime.datetime.strptime(dt, fmt)
-                    break
-                except ValueError:
-                    continue
-            else:
-                return dt
+    query = "SELECT enrol_id FROM EventEnrol WHERE user_id = %s AND event_id = %s"
+    cur.execute(query, (user_id, event_id))
+    result = cur.fetchone()
 
-    # If date only (no time), coerce to datetime for formatting
-    if isinstance(dt, datetime.date) and not isinstance(dt, datetime.datetime):
-        dt = datetime.datetime(dt.year, dt.month, dt.day)
+    cur.close()
+    conn.close()
 
-    return dt.strftime("%d/%m/%Y %H:%M")
+    return result is not None
+
+def createBooking(user_id, event_id, ticket_quantity, total_price):
+    conn = getConnection()
+    cur = conn.cursor()
+
+    query = """
+        INSERT INTO EventEnrol 
+        (event_id, user_id, ticket_quantity, booking_status, total_price)
+        VALUES (%s, %s, %s, 'confirmed', %s)
+    """
+
+    cur.execute(query, (event_id, user_id, ticket_quantity, total_price))
+    conn.commit()
+
+    cur.close()
+    conn.close()
+
+    return True
+
+def getBookedTickets(event_id):
+    conn = getConnection()
+    cur = conn.cursor()
+
+    query = """
+        SELECT SUM(ticket_quantity)
+        FROM EventEnrol
+        WHERE event_id = %s
+    """
+
+    cur.execute(query, (event_id,))
+    result = cur.fetchone()[0]
+
+    cur.close()
+    conn.close()
+
+    return result if result else 0
+def getApplicableDiscount(days_before):
+    conn = getConnection()
+    cur = conn.cursor(dictionary=True)
+
+    query = """
+        SELECT * FROM Discount
+        WHERE min_days_before <= %s
+        ORDER BY min_days_before DESC
+        LIMIT 1
+    """
+
+    cur.execute(query, (days_before,))
+    discount = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    return discount
+
+def getUserBookings(user_id):
+    conn = getConnection()
+    cur = conn.cursor(dictionary=True)
+
+    query = """
+        SELECT 
+            ee.enrol_id,
+            ee.event_id,
+            ee.ticket_quantity,
+            ee.total_price,
+            ee.booking_status,
+            ee.booking_datetime,
+            e.event_name,
+            e.event_date,
+            v.venue_name,
+            v.venue_imgPath,
+            et.eventType_name
+        FROM EventEnrol ee
+        JOIN Event e ON ee.event_id = e.event_id
+        JOIN Venue v ON e.venue_id = v.venue_id
+        JOIN EventType et ON e.eventType_id = et.eventType_id
+        WHERE ee.user_id = %s
+        ORDER BY e.event_date DESC
+    """
+
+    cur.execute(query, (user_id,))
+    bookings = cur.fetchall()
+
+    # Format dates for display
+    for booking in bookings:
+        if "event_date" in booking:
+            booking["event_date"] = format_datetime_uk(booking["event_date"])
+
+    cur.close()
+    conn.close()
+
+    return bookings
+
+def cancelBooking(enrol_id):
+    conn = getConnection()
+    cur = conn.cursor()
+    
+    try:
+        query = "DELETE FROM EventEnrol WHERE enrol_id = %s"
+        cur.execute(query, (enrol_id,))
+        conn.commit()
+        return True
+    except Exception as e:
+        conn.rollback()
+        print(f"Error cancelling booking: {e}")
+        return False
+    finally:
+        cur.close()
+        conn.close()
 
 def getConnection():
     try:
@@ -241,7 +336,6 @@ def getEventTypes():
 
     return types
 
-
 def getVenues():
     conn = getConnection()
 
@@ -282,7 +376,8 @@ def getEventById(event_id):
             v.venue_imgPath,
             v.venue_location,
             e.event_date,
-            e.event_price
+            e.event_price,
+            e.event_capacity
         FROM Event e
         JOIN EventType et ON e.eventType_id = et.eventType_id
         JOIN Venue v ON e.venue_id = v.venue_id
@@ -299,3 +394,30 @@ def getEventById(event_id):
     conn.close()
 
     return event
+
+def format_datetime_uk(dt):
+    #Format a datetime as DD/MM/YYYY HH:MM (UK format)
+    if dt is None:
+        return ""
+
+    if isinstance(dt, str):
+        try:
+            dt = datetime.datetime.fromisoformat(dt)
+        except ValueError:
+            for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M", "%Y-%m-%d"):
+                try:
+                    # datetime.datetime.strptime(date, format)
+                    # Converts a string(passed from DB) into 
+                    # a datetime object by matching it against a format pattern
+                    dt = datetime.datetime.strptime(dt, fmt)
+                    break
+                except ValueError:
+                    continue
+            else:
+                return dt
+
+    # If date only (no time), coerce to datetime for formatting
+    if isinstance(dt, datetime.date) and not isinstance(dt, datetime.datetime):
+        dt = datetime.datetime(dt.year, dt.month, dt.day)
+
+    return dt.strftime("%d/%m/%Y %H:%M")

@@ -83,6 +83,51 @@
     background-color: #1F1F1F;
     transition: 1s;
 }
+.events-cancel-btn {
+    position: relative;
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+    background-color: #d32f2f;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    padding: 15px 50px;
+    cursor: pointer;
+    z-index: 1;
+    border: none; 
+    transition: 1s;
+    width: 100%;
+}
+
+.events-cancel-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #b71c1c;
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    z-index: -2;
+    transition: 1s;
+}
+.events-cancel-btn::after {
+    content: "";
+    position: absolute;
+    inset: 3px; 
+    background-color: #d32f2f; 
+    clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    z-index: -1;
+    transition: 1s;
+}
+.events-cancel-btn:hover{
+    background-color: #b71c1c;
+    transition: 1s;
+}
+.events-cancel-btn:hover::before{
+    background-color: #d32f2f;
+    transition: 1s;
+}
+.events-cancel-btn:hover::after{
+    background-color: #b71c1c;
+    transition: 1s;
+}
 .event-card-action-btns{
     gap: 5px;
     margin-left: 20px;

@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Book Event - BCE{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/booking.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/global.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="booking-section-wrapper d-flex flex-column align-items-center" style="margin: 64px 0;">
+    <div class="booking-form-box d-flex flex-row align-items-center justify-content-between">
+        <div class="design-line"></div>
+        <div class="booking-content d-flex flex-column align-items-center justify-content-start" style="gap: 30px;">
+            <h2 class="booking-title">Book Your Tickets</h2>
+            
+            <!-- Event Details -->
+            <div class="event-details-box d-flex flex-column" style="gap: 15px;">
+                <h3 class="event-name">{{ event.event_name }}</h3>
+                <div class="detail-row d-flex">
+                    <span class="detail-label">Date:</span>
+                    <span class="detail-value">{{ event.event_date }}</span>
+                </div>
+                <div class="detail-row d-flex">
+                    <span class="detail-label">Venue:</span>
+                    <span class="detail-value">{{ event.venue_name }}</span>
+                </div>
+                <div class="detail-row d-flex">
+                    <span class="detail-label">Price per ticket:</span>
+                    <div class="price-section d-flex align-items-center" style="gap: 12px;">
+                        <span class="original-price">£{{ original_price|round(2) }}</span>
+                        <span class="new-price">£{{ final_price|round(2) }}</span>
+                        {% if discount_percent > 0 %}
+                        <span class="discount-badge">Save {{ discount_percent|round(0)|int }}%</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Details Section -->
+            <div class="account-details-box d-flex flex-column" style="gap: 12px;">
+                <h4 class="section-subtitle">Your Account Details</h4>
+                <div class="account-row d-flex">
+                    <span class="detail-label">Name:</span>
+                    <span class="detail-value">{{ user.user_name }}</span>
+                </div>
+                <div class="account-row d-flex">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">{{ user.user_email }}</span>
+                </div>
+                {% if user.user_phoneNo %}
+                <div class="account-row d-flex">
+                    <span class="detail-label">Phone:</span>
+                    <span class="detail-value">{{ user.user_phoneNo }}</span>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Booking Form -->
+            <form method="POST" class="booking-form d-flex flex-column align-items-center" style="gap: 20px;">
+                {% if error %}
+                <p class="error-text">{{ error }}</p>
+                {% endif %}
+
+                <div class="booking-field d-flex flex-column align-items-center">
+                    <div class="input-row d-flex">
+                        <label for="ticket_quantity" class="input-label">Tickets</label>
+                        <select id="ticket_quantity" name="ticket_quantity" class="default-input ticket-select" required>
+                            <option value="">Select Qty</option>
+                            <option value="1">1 Ticket</option>
+                            <option value="2">2 Tickets</option>
+                            <option value="3">3 Tickets</option>
+                            <option value="4">4 Tickets</option>
+                            <option value="5">5 Tickets</option>
+                            <option value="6">6 Tickets</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Total Amount Display -->
+                <div class="total-breakdown d-flex flex-column align-items-center" style="gap: 12px; width: 100%;">
+                    <div class="total-row d-flex align-items-center" style="gap: 30px;">
+                        <span class="breakdown-label">Original Total:</span>
+                        <span class="original-total">£<span id="originalTotal">0.00</span></span>
+                    </div>
+                    <div class="total-row d-flex align-items-center" style="gap: 30px;">
+                        <span class="breakdown-label">Discount:</span>
+                        <span class="discount-amount">-£<span id="discountAmount">0.00</span></span>
+                    </div>
+                    <div class="total-divider"></div>
+                    <div class="total-row final-total d-flex align-items-center" style="gap: 30px;">
+                        <span class="breakdown-label">You Pay:</span>
+                        <span class="final-total-value">£<span id="totalAmount">0.00</span></span>
+                    </div>
+                </div>
+
+                <input type="submit" value="Pay" class="submit-btn" style="margin-top: 20px;">
+                <a href="{{ url_for('events') }}" class="cancel-link">Cancel</a>
+            </form>
+        </div>
+        <div class="design-line"></div>
+    </div>
+</section>
+
+<script>
+    const originalPrice = {{ original_price }};
+    const finalPrice = {{ final_price }};
+    const discountPercent = {{ discount_percent }};
+    const ticketSelect = document.getElementById('ticket_quantity');
+    const totalAmount = document.getElementById('totalAmount');
+    const originalTotal = document.getElementById('originalTotal');
+    const discountAmount = document.getElementById('discountAmount');
+
+    ticketSelect.addEventListener('change', updatePricing);
+
+    function updatePricing() {
+        const quantity = parseInt(ticketSelect.value) || 0;
+        
+        const origTotal = (quantity * originalPrice).toFixed(2);
+        const finalTotal = (quantity * finalPrice).toFixed(2);
+        const savings = (origTotal - finalTotal).toFixed(2);
+        
+        originalTotal.textContent = origTotal;
+        discountAmount.textContent = savings;
+        totalAmount.textContent = finalTotal;
+    }
+
+    updatePricing();
+</script>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
