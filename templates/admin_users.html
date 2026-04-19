@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}BCE - Manage Users{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="admin-users-wrapper d-flex flex-column align-items-center" style="padding: 40px 0;">
+    <h1 class="page-main-title">Manage Users</h1>
+
+    <div class="manage-panel">
+        <div class="panel-row d-flex justify-content-between align-items-center" style="margin-bottom: 20px;">
+            <h3>All users</h3>
+            <button class="bce-btn" onclick="document.getElementById('createUserForm').classList.toggle('d-none')">Create user</button>
+        </div>
+
+        <form id="createUserForm" action="{{ url_for('admin_create_user') }}" method="post" class="d-none" style="margin-bottom: 20px;">
+            <div class="d-flex" style="gap: 12px; flex-wrap: wrap;">
+                <input name="username" placeholder="Username" class="default-input" required>
+                <input name="email" placeholder="Email" class="default-input" required>
+                <input name="password" placeholder="Password" class="default-input" required>
+                <select name="role" class="default-input">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <input type="submit" value="Create" class="bce-btn">
+            </div>
+        </form>
+
+        <div class="users-table">
+            <table>
+                <thead>
+                    <tr style="text-align: left;">
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>DOB</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in users %}
+                    <tr>
+                        <td>{{ u.user_name }}</td>
+                        <td>{{ u.user_email }}</td>
+                        <td>{{ u.user_phoneNo or '—' }}</td>
+                        <td>{{ u.user_dob or '—' }}</td>
+                        <td>{{ u.user_role or 'user' }}</td>
+                        <td>
+                            <button class="bce-btn" onclick="toggleEdit('{{ u.user_id }}')">Edit</button>
+                            <form action="{{ url_for('admin_delete_user', user_id=u.user_id) }}" method="post" style="display:inline;">
+                                <button type="submit" class="bce-logout-btn" onclick="return confirm('Delete user?');">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr id="edit-row-{{ u.user_id }}" class="d-none">
+                        <td colspan="6" style="padding: 8px 12px;">
+                            <form action="{{ url_for('admin_update_user', user_id=u.user_id) }}" method="post" class="d-flex" style="gap: 8px; flex-wrap: wrap; align-items:center;">
+                                <input name="username" value="{{ u.user_name }}" class="default-input" required>
+                                <input name="email" value="{{ u.user_email }}" class="default-input" required>
+                                <input name="phone" value="{{ u.user_phoneNo }}" class="default-input">
+                                <input name="dob" value="{{ u.user_dob }}" class="default-input" placeholder="YYYY-MM-DD">
+                                <select name="role" class="default-input">
+                                    <option value="user" {% if u.user_role != 'admin' %}selected{% endif %}>User</option>
+                                    <option value="admin" {% if u.user_role == 'admin' %}selected{% endif %}>Admin</option>
+                                </select>
+                                <input type="submit" value="Save" class="bce-btn">
+                                <button type="button" class="bce-logout-btn" onclick="toggleEdit('{{ u.user_id }}')">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function toggleEdit(id){
+    var row = document.getElementById('edit-row-'+id);
+    if(!row) return;
+    row.classList.toggle('d-none');
+}
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}BCE - Manage Events{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="admin-events-wrapper d-flex flex-column align-items-center" style="padding: 40px 0;">
+    <h1 class="page-main-title">Manage Events</h1>
+
+    <div class="manage-panel">
+        <div class="panel-row d-flex justify-content-between align-items-center" style="margin-bottom: 20px;">
+            <h3>Upcoming events</h3>
+            <button class="bce-btn" onclick="document.getElementById('createEventForm').classList.toggle('d-none')">Create event</button>
+        </div>
+
+        <form id="createEventForm" action="{{ url_for('admin_create_event') }}" method="post" class="d-none" style="margin-bottom: 20px;">
+            <div class="d-flex" style="gap: 12px; flex-wrap: wrap;">
+                <input name="event_name" placeholder="Event name" class="default-input" required>
+                <input name="event_date" placeholder="Event date (YYYY-MM-DD HH:MM)" class="default-input" required>
+                <input name="event_price" placeholder="Price" class="default-input" required>
+                <input name="event_capacity" placeholder="Capacity" class="default-input" required>
+                <select name="eventType_id" class="default-input" required>
+                    <option value="">Select type</option>
+                    {% for et in event_types %}
+                        <option value="{{ et.eventType_id }}">{{ et.event_name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="venue_id" class="default-input" required>
+                    <option value="">Select venue</option>
+                    {% for v in venues %}
+                        <option value="{{ v.venue_id }}">{{ v.venue_name }}</option>
+                    {% endfor %}
+                </select>
+                <input name="event_custom_description" placeholder="Short description" class="default-input">
+                <input type="submit" value="Create" class="bce-btn">
+            </div>
+        </form>
+
+        <div class="events-table">
+            <table>
+                <thead>
+                    <tr style="text-align: left;">
+                        <th>Event</th>
+                        <th>Type</th>
+                        <th>Venue</th>
+                        <th>Date</th>
+                        <th>Price</th>
+                        <th>Capacity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in events %}
+                    <tr>
+                        <td>{{ e.event_name }}</td>
+                        <td>{{ e.event_type_name }}</td>
+                        <td>{{ e.venue_name }}</td>
+                        <td>{{ e.event_date or '—' }}</td>
+                        <td>{{ e.event_price or '—' }}</td>
+                        <td>{{ e.event_capacity or '—' }}</td>
+                        <td>
+                            <form action="{{ url_for('admin_delete_event', event_id=e.event_id) }}" method="post" style="display:inline;">
+                                <button type="submit" class="bce-logout-btn" onclick="return confirm('Delete event?');">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
