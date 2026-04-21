@@ -17,7 +17,7 @@
             <button class="bce-btn" onclick="document.getElementById('createEventForm').classList.toggle('d-none')">Create event</button>
         </div>
 
-        <form id="createEventForm" action="{{ url_for('admin_create_event') }}" method="post" class="d-none" style="margin-bottom: 20px;">
+        <form id="createEventForm" action="{{ url_for('admin.admin_create_event') }}" method="post" class="d-none" style="margin-bottom: 20px;">
             <div class="d-flex" style="gap: 12px; flex-wrap: wrap;">
                 <input name="event_name" placeholder="Event name" class="default-input" required>
                 <input name="event_date" placeholder="Event date (YYYY-MM-DD HH:MM)" class="default-input" required>
@@ -63,7 +63,7 @@
                         <td>{{ e.event_price or '—' }}</td>
                         <td>{{ e.event_capacity or '—' }}</td>
                         <td>
-                            <form action="{{ url_for('admin_delete_event', event_id=e.event_id) }}" method="post" style="display:inline;">
+                            <form action="{{ url_for('admin.admin_delete_event', event_id=e.event_id) }}" method="post" style="display:inline;">
                                 <button type="submit" class="bce-logout-btn" onclick="return confirm('Delete event?');">Delete</button>
                             </form>
                         </td>

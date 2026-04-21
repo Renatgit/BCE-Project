@@ -1,5 +1,5 @@
 <header class="d-flex align-items-center justify-content-between" style="padding: 20px 0px;">
-    <a href="/index">
+    <a href="{{ url_for('main.home') }}">
         <img src="{{ url_for('static', filename='img/BCE_Logo_Black_Text(final).png') }}" alt="BCE Logo" class="img-fluid bce-logo" width="220px" height="auto">
     </a>
     <a href="#" class="dark-mode-center">
@@ -7,27 +7,30 @@
     </a>
     <nav class="d-flex navbar-full">
         <div class="d-flex align-items-center navbar-links-only">
-            <a href="/index" class="navbar-link"><span>Home</span></a>
-            <a href="/events" class="navbar-link"><span>Events</span></a>
-            <a href="/aboutus" class="navbar-link"><span>About Us</span></a>
+            <a href="{{ url_for('main.home') }}" class="navbar-link"><span>Home</span></a>
+            <a href="{{ url_for('events.events') }}" class="navbar-link"><span>Events</span></a>
+            <a href="{{ url_for('main.about') }}" class="navbar-link"><span>About Us</span></a>
         </div>
 
         {% if session.get('user_id') %}
             {% if session.get('user_role') == 'admin' %}
-                <a href="/admin" class="btn btn-primary bce-btn bce-login-btn authBtn">Admin</a>
-                <a href="/logout" class="btn btn-outline bce-btn bce-logout-btn authBtn">Logout</a>
+                {% if request.path == "/account" %}
+                    <a href="{{ url_for('auth.logout') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('admin.admin_dashboard') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Admin</a>
+                {% endif %}
             {% else %}
                 {% if request.path == "/account" %}
-                    <a href="/logout" class="btn btn-primary bce-btn bce-login-btn authBtn">Logout</a>
+                    <a href="{{ url_for('auth.logout') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Logout</a>
                 {% else %}
-                    <a href="/account" class="btn btn-primary bce-btn bce-login-btn authBtn">My Account</a>
+                    <a href="{{ url_for('main.account') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">My Account</a>
                 {% endif %}
             {% endif %}
         {% else %}
             {% if request.path == "/login" %}
-                <a href="/signup" class="btn btn-primary bce-btn bce-login-btn authBtn">Sign Up</a>
+                <a href="{{ url_for('auth.signup') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Sign Up</a>
             {% else %}
-                <a href="/login" class="btn btn-primary bce-btn bce-login-btn authBtn">Login</a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Login</a>
             {% endif %}
         {% endif %}
     </nav>
@@ -46,29 +49,29 @@
 
                 <div class="offcanvas-body">
                     <ul class="mobile-nav">
-                        <li><a class="navbar-link" href="/index">Home</a></li>
-                        <li><a class="navbar-link" href="/events">Events</a></li>
-                        <li><a class="navbar-link" href="/aboutus">About Us</a></li>
+                        <li><a class="navbar-link" href="{{ url_for('main.home') }}">Home</a></li>
+                        <li><a class="navbar-link" href="{{ url_for('events.events') }}">Events</a></li>
+                        <li><a class="navbar-link" href="{{ url_for('main.about') }}">About Us</a></li>
                     </ul>
 
                     {% if session.get('user_id') %}
                         {% if session.get('user_role') == 'admin' %}
                             <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                                <a href="/admin" class="btn btn-primary bce-btn bce-login-btn authBtn">Admin</a>
-                                <a href="/logout" class="btn btn-outline bce-btn bce-logout-btn authBtn">Logout</a>
+                                <a href="{{ url_for('admin.admin_dashboard') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Admin</a>
+                                <a href="{{ url_for('auth.logout') }}" class="btn btn-outline bce-btn bce-logout-btn authBtn">Logout</a>
                             </div>
                         {% else %}
                             {% if request.path == "/account" %}
-                                <a href="/logout" class="btn btn-primary bce-btn bce-login-btn authBtn">Logout</a>
+                                <a href="{{ url_for('auth.logout') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Logout</a>
                             {% else %}
-                                <a href="/account" class="btn btn-primary bce-btn bce-login-btn authBtn">My Account</a>
+                                <a href="{{ url_for('main.account') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">My Account</a>
                             {% endif %}
                         {% endif %}
                     {% else %}
                         {% if request.path == "/login" %}
-                            <a href="/signup" class="btn btn-primary bce-btn bce-login-btn authBtn">Sign Up</a>
+                            <a href="{{ url_for('auth.signup') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Sign Up</a>
                         {% else %}
-                            <a href="/login" class="btn btn-primary bce-btn bce-login-btn authBtn">Login</a>
+                            <a href="{{ url_for('auth.login') }}" class="btn btn-primary bce-btn bce-login-btn authBtn">Login</a>
                         {% endif %}
                     {% endif %}
                 </div>

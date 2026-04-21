@@ -6,14 +6,14 @@
         </div>
         <div class="links-wrapper d-flex flex-row justify-content-between align-items-center flex-same-size-footer">
             <div class="links-block">
-                <a href="/index"><span>Home</span></a>
-                <a href="/events"><span>Book Events</span></a>
-                <a href="/account"><span>Your Account</span></a>
+                <a href="{{ url_for('main.home') }}"><span>Home</span></a>
+                <a href="{{ url_for('events.events') }}"><span>Book Events</span></a>
+                <a href="{{ url_for('main.account') }}"><span>Your Account</span></a>
             </div>
             <div class="links-block">
-                <a href="/contact"><span>Contact Us</span></a>
-                <a href="/aboutus"><span>About</span></a>
-                <a href="/credits"><span>Credits</span></a>
+                <a href="{{ url_for('main.about') }}"><span>About</span></a>
+                <a href="{{ url_for('main.about') }}"><span>About</span></a>
+                <a href="{{ url_for('main.credits') }}"><span>Credits</span></a>
             </div>
         </div>
         <div class="copyrights-wrapper flex-same-size-footer">

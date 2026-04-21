@@ -101,7 +101,7 @@
             <!-- Scroll Container -->
             <div class="events-list d-flex flex-column align-items-center" id="eventsContainer">
                 {% if bookings|length == 0 %}
-                <p class="no-bookings-message">You haven't booked any events yet. <a href="{{ url_for('events') }}" style="color: #000; text-decoration: underline;">Book an event now!</a></p>
+                <p class="no-bookings-message">You haven't booked any events yet. <a href="{{ url_for('events.events') }}" style="color: #000; text-decoration: underline;">Book an event now!</a></p>
                 {% else %}
                 {% for booking in bookings %}
                 <!-- Event Card -->

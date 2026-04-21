@@ -17,7 +17,7 @@
             <button class="bce-btn" onclick="document.getElementById('createUserForm').classList.toggle('d-none')">Create user</button>
         </div>
 
-        <form id="createUserForm" action="{{ url_for('admin_create_user') }}" method="post" class="d-none" style="margin-bottom: 20px;">
+        <form id="createUserForm" action="{{ url_for('admin.admin_create_user') }}" method="post" class="d-none" style="margin-bottom: 20px;">
             <div class="d-flex" style="gap: 12px; flex-wrap: wrap;">
                 <input name="username" placeholder="Username" class="default-input" required>
                 <input name="email" placeholder="Email" class="default-input" required>
@@ -52,14 +52,14 @@
                         <td>{{ u.user_role or 'user' }}</td>
                         <td>
                             <button class="bce-btn" onclick="toggleEdit('{{ u.user_id }}')">Edit</button>
-                            <form action="{{ url_for('admin_delete_user', user_id=u.user_id) }}" method="post" style="display:inline;">
+                            <form action="{{ url_for('admin.admin_delete_user', user_id=u.user_id) }}" method="post" style="display:inline;">
                                 <button type="submit" class="bce-logout-btn" onclick="return confirm('Delete user?');">Delete</button>
                             </form>
                         </td>
                     </tr>
                     <tr id="edit-row-{{ u.user_id }}" class="d-none">
                         <td colspan="6" style="padding: 8px 12px;">
-                            <form action="{{ url_for('admin_update_user', user_id=u.user_id) }}" method="post" class="d-flex" style="gap: 8px; flex-wrap: wrap; align-items:center;">
+                            <form action="{{ url_for('admin.admin_update_user', user_id=u.user_id) }}" method="post" class="d-flex" style="gap: 8px; flex-wrap: wrap; align-items:center;">
                                 <input name="username" value="{{ u.user_name }}" class="default-input" required>
                                 <input name="email" value="{{ u.user_email }}" class="default-input" required>
                                 <input name="phone" value="{{ u.user_phoneNo }}" class="default-input">
