@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+# Student ID: 25060488
+# Name: Renat Bershadskyi
 from flask import Blueprint, render_template, request
 import dbfunc
 

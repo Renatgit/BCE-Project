@@ -1,3 +1,5 @@
+// Student ID: 25060488
+// Name: Renat Bershadskyi
 function matchBlockHeights() {
     document.querySelectorAll(".matchHeights").forEach(section => {
         const image = section.querySelector(".bg-img");

@@ -1,3 +1,5 @@
+// Student ID: 25060488
+// Name: Renat Bershadskyi
 document.getElementById("showPassword").addEventListener("change", function() {
     const passwordField = document.getElementById("password");
     const confirmField = document.getElementById("confirm_password");

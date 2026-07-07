@@ -1,3 +1,5 @@
+# Student ID: 25060488
+# Name: Renat Bershadskyi
 from flask import Flask
 from config import SECRET_KEY
 from routes.auth import auth_bp

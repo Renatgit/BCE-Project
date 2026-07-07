@@ -1,3 +1,5 @@
+/*---Student ID: 25060488---*/
+/*---Name: Renat Bershadskyi---*/
 .events-hero-text-spacing{
     line-height: 180%;
 }
@@ -29,7 +31,7 @@
 .search-box-content-wrapper{
     height: 100%;
     flex: 0 0 auto; 
-    position: relative; /* allow filter/sort panels to sit on top without pushing layout */
+    position: relative; 
 }
 .search-events-btn{
     width: 156px;

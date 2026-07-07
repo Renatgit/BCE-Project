@@ -1,3 +1,5 @@
+# Student ID: 25060488
+# Name: Renat Bershadskyi
 import mysql.connector
 from mysql.connector import errorcode
 import datetime

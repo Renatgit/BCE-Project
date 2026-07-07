@@ -1,3 +1,5 @@
+# Student ID: 25060488
+# Name: Renat Bershadskyi
 from flask import Blueprint, redirect, render_template, session, url_for, jsonify, request
 import dbfunc
 from datetime import datetime, timedelta

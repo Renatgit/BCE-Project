@@ -1,4 +1,6 @@
-//GET ELEMENTS
+// Student ID: 25060488
+// Name: Renat Bershadskyi
+//Get Elements
 const form = document.querySelector(".reg-form");
 
 const emailInput = document.getElementById("email");
@@ -11,7 +13,7 @@ const usernameError = document.getElementById("username-error");
 const confirmError = document.getElementById("confirm-error");
 const passwordError = document.getElementById("password-error");
 
-//EMAIL VALIDATION
+//Email validation
 emailInput.addEventListener("input", () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -22,7 +24,7 @@ emailInput.addEventListener("input", () => {
     }
 });
 
-//USERNAME VALIDATION
+//username validation
 usernameInput.addEventListener("input", () => {
     if (usernameInput.value.length < 3) {
         usernameError.textContent = "Username must be at least 3 characters";
@@ -31,7 +33,7 @@ usernameInput.addEventListener("input", () => {
     }
 });
 
-//PASSWORD LENGTH
+//password length
 passwordInput.addEventListener("input", () => {
     if (passwordInput.value.length < 8) {
         passwordError.textContent = "Password must be at least 8 characters";
@@ -40,7 +42,7 @@ passwordInput.addEventListener("input", () => {
     }
 });
 
-//PASSWORD MATCH
+//password match
 confirmInput.addEventListener("input", () => {
     if (confirmInput.value !== passwordInput.value) {
         confirmError.textContent = "Passwords do not match";
@@ -49,7 +51,7 @@ confirmInput.addEventListener("input", () => {
     }
 });
 
-//CHECK EMAIL EXISTS
+//checkemail exist
 emailInput.addEventListener("blur", async () => {
     if (!emailInput.value) return;
 
@@ -61,7 +63,7 @@ emailInput.addEventListener("blur", async () => {
     }
 });
 
-//CHECK USERNAME EXISTS
+//check username exist
 usernameInput.addEventListener("blur", async () => {
     if (!usernameInput.value) return;
 
@@ -73,7 +75,7 @@ usernameInput.addEventListener("blur", async () => {
     }
 });
 
-//FINAL SUBMIT CHECK
+//Final Submit Check
 form.addEventListener("submit", function(e) {
 
     if (

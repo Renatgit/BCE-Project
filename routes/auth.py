@@ -1,3 +1,5 @@
+# Student ID: 25060488
+# Name: Renat Bershadskyi
 from flask import Blueprint, redirect, render_template, session, url_for, jsonify, request
 from werkzeug.security import check_password_hash
 import dbfunc

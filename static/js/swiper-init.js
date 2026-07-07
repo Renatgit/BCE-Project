@@ -1,3 +1,5 @@
+// Student ID: 25060488
+// Name: Renat Bershadskyi
 // Wait until the page and Swiper are fully loaded
 window.addEventListener("load", () => {
   const swiper = new Swiper(".swiper", {

@@ -1,3 +1,5 @@
+/*---Student ID: 25060488---*/
+/*---Name: Renat Bershadskyi---*/
 /*---"STARTER" part content---*/
 .starter-content{
     position: relative;
@@ -21,7 +23,7 @@
 }
 
 
-@media (max-height: 830px) { /* MacBooks, slimmer laptops */
+@media (max-height: 830px) { 
     .starter-content-main-text{
         font-size: 82px;
     }
@@ -29,7 +31,7 @@
         font-size: 22px;
     }
 }  
-@media (max-height: 750px) { /* Older laptops (1366x768) */
+@media (max-height: 750px) { 
     .starter-content-main-text{
         font-size: 72px;
     }
@@ -37,7 +39,7 @@
         font-size: 20px;
     }
 }  
-@media (max-height: 670px) { /* Minimum reasonable height */
+@media (max-height: 670px) {
     .starter-content-main-text{
         font-size: 64px;
     }
